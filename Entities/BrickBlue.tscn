@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://jhttbnk5ug1m"]
+
+[ext_resource type="Script" path="res://Scripts/Bricks/BrickBlue.gd" id="1_5mne1"]
+[ext_resource type="Texture2D" uid="uid://bpq5ppog3xiom" path="res://Sprites/brick-blue.png" id="2_in6sc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
+size = Vector2(14, 7)
+
+[node name="BrickBlue" type="Area2D"]
+script = ExtResource("1_5mne1")
+
+[node name="Image" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(9, 6)
+texture = ExtResource("2_in6sc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 3.5)
+shape = SubResource("RectangleShape2D_p5kfe")

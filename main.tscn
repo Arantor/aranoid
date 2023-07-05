@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctd7fvwoat1mi"]
+
+[ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4js7"]
+[ext_resource type="PackedScene" uid="uid://biske8rxjsnw1" path="res://Entities/Player.tscn" id="3_k45l6"]
+[ext_resource type="AudioStream" uid="uid://suy6f72nx8qr" path="res://Sounds/brick_collide.mp3" id="4_sbyut"]
+[ext_resource type="AudioStream" uid="uid://ctxvy2hvrh1nf" path="res://Sounds/player_collide.mp3" id="4_tor43"]
+[ext_resource type="AudioStream" uid="uid://kf3vepo1kkdb" path="res://Sounds/brick_gold_collide.mp3" id="5_smn3j"]
+[ext_resource type="Texture2D" uid="uid://v63tedvdoml2" path="res://Sprites/board-overlay.png" id="6_7w8pq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jhoc"]
+size = Vector2(226, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwct"]
+size = Vector2(12, 177)
+
+[node name="Level" type="Node2D"]
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_o4js7")
+
+[node name="Board-overlay" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(160, 90)
+texture = ExtResource("6_7w8pq")
+
+[node name="BricksContainer" type="Node" parent="."]
+
+[node name="WallTop" type="Area2D" parent="."]
+
+[node name="WallTop" type="CollisionShape2D" parent="WallTop"]
+z_index = 2
+position = Vector2(125, -6)
+shape = SubResource("RectangleShape2D_5jhoc")
+
+[node name="WallSides" type="Area2D" parent="."]
+
+[node name="WallLeft" type="CollisionShape2D" parent="WallSides"]
+z_index = 2
+position = Vector2(6, 88)
+shape = SubResource("RectangleShape2D_ehwct")
+
+[node name="WallRight" type="CollisionShape2D" parent="WallSides"]
+z_index = 2
+position = Vector2(244, 88.5)
+shape = SubResource("RectangleShape2D_ehwct")
+
+[node name="PlayerItems" type="Node" parent="."]
+
+[node name="Player" parent="PlayerItems" instance=ExtResource("3_k45l6")]
+position = Vector2(126, 153)
+
+[node name="Balls" type="Node" parent="PlayerItems"]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="PlayerSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_tor43")
+
+[node name="BrickSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_sbyut")
+
+[node name="BrickMetalSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_smn3j")

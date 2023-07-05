@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://biske8rxjsnw1"]
+
+[ext_resource type="Texture2D" uid="uid://dp8ppr7v6i6ik" path="res://Sprites/Player.png" id="1_c03q4"]
+
+[sub_resource type="GDScript" id="GDScript_sf8fo"]
+script/source = "extends Area2D
+
+var ball = preload(\"res://Entities/Ball.tscn\")
+var ball_group
+var collide_sound
+var score = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	position.x = 124
+	position.y = 155
+	var levels_container = get_node('../../BricksContainer')
+	Levels.populate_level(levels_container)
+	
+	collide_sound = get_node('../../Sounds/PlayerSound')
+	
+	var current_ball = ball.instantiate()
+	ball_group = get_node('../Balls')
+	ball_group.add_sibling.call_deferred(current_ball)
+	current_ball.position = Vector2(124, 150)
+	current_ball.stored_velocity = Vector2(60, -60)
+	current_ball.ball_to_bat = 0
+	current_ball.ball_mode = current_ball.BALL_MODE.CAUGHT
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		position.x += event.relative.x
+	position.x = clamp(position.x, 33, 216)
+
+func _ball_bounce(current_ball):
+	if \"velocity\" not in current_ball:
+		return
+	print(current_ball.position)
+	print(position)
+	current_ball.velocity.y = -current_ball.velocity.y
+	collide_sound.play()
+"
+
+[node name="Player" type="Area2D"]
+z_index = 1
+script = SubResource("GDScript_sf8fo")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(3, 11)
+texture = ExtResource("1_c03q4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-17, 7, -17, 4, -13, 0, 14, 0, 18, 4, 18, 7, 21, 7, 19, 13, 12, 17, 7, 18, -7, 18, -12, 17, -18, 13, -20, 7)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4v24ehhh645k"]
+
+[ext_resource type="Script" path="res://Scripts/Bricks/BrickGold.gd" id="1_1pjfi"]
+[ext_resource type="Texture2D" uid="uid://c1ebv3w8vc5hy" path="res://Sprites/brick-gold.png" id="2_qw1vu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
+size = Vector2(14, 7)
+
+[node name="BrickGold" type="Area2D"]
+script = ExtResource("1_1pjfi")
+
+[node name="Image" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(9, 6)
+texture = ExtResource("2_qw1vu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 3.5)
+shape = SubResource("RectangleShape2D_p5kfe")
