@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt0f0pfgeqjst"]
 
-[ext_resource type="Script" path="res://Scripts/Bricks/BrickLightBlue.gd" id="1_rraig"]
+[ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_uuyli"]
 [ext_resource type="Texture2D" uid="uid://dy7efnwsvg613" path="res://Sprites/brick-lightblue.png" id="2_uwalw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
 size = Vector2(14, 7)
 
-[node name="BrickBlue" type="Area2D"]
-script = ExtResource("1_rraig")
+[node name="BrickLightBlue" type="Area2D"]
+script = ExtResource("1_uuyli")
+scores = 2
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = 2

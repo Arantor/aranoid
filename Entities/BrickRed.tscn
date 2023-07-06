@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://kxbdr3xuq0bx"]
 
-[ext_resource type="Script" path="res://Scripts/Bricks/BrickRed.gd" id="1_qq2jc"]
+[ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_xfebb"]
 [ext_resource type="Texture2D" uid="uid://bf6v3646rv1hq" path="res://Sprites/brick-red.png" id="2_2p4so"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
 size = Vector2(14, 7)
 
 [node name="BrickRed" type="Area2D"]
-script = ExtResource("1_qq2jc")
+script = ExtResource("1_xfebb")
+scores = 1
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = 2

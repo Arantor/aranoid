@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://crjbtxx6m2jql"]
 
-[ext_resource type="Script" path="res://Scripts/Bricks/BrickBrown.gd" id="1_0st3h"]
+[ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_kf7l7"]
 [ext_resource type="Texture2D" uid="uid://btquwhl1k8foi" path="res://Sprites/brick-brown.png" id="2_f6cqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
 size = Vector2(14, 7)
 
 [node name="BrickBrown" type="Area2D"]
-script = ExtResource("1_0st3h")
+script = ExtResource("1_kf7l7")
+scores = 5
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = 2

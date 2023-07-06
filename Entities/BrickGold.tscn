@@ -1,13 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4v24ehhh645k"]
 
-[ext_resource type="Script" path="res://Scripts/Bricks/BrickGold.gd" id="1_1pjfi"]
+[ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_nlrm0"]
 [ext_resource type="Texture2D" uid="uid://c1ebv3w8vc5hy" path="res://Sprites/brick-gold.png" id="2_qw1vu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
 size = Vector2(14, 7)
 
 [node name="BrickGold" type="Area2D"]
-script = ExtResource("1_1pjfi")
+script = ExtResource("1_nlrm0")
+metallic = true
+destructible = false
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = 2

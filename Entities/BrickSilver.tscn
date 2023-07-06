@@ -1,13 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckggcaamxkk3t"]
 
-[ext_resource type="Script" path="res://Scripts/Bricks/BrickSilver.gd" id="1_pbpi4"]
+[ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_cr1hf"]
 [ext_resource type="Texture2D" uid="uid://b6btd01ta2nqi" path="res://Sprites/brick-silver.png" id="2_g0igo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
 size = Vector2(14, 7)
 
-[node name="BrickGrey" type="Area2D"]
-script = ExtResource("1_pbpi4")
+[node name="BrickSilver" type="Area2D"]
+script = ExtResource("1_cr1hf")
+scores = 10
+hits = 2
+metallic = true
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = 2
