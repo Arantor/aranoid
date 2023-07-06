@@ -7,11 +7,11 @@
 [ext_resource type="AudioStream" uid="uid://kf3vepo1kkdb" path="res://Sounds/brick_gold_collide.mp3" id="5_smn3j"]
 [ext_resource type="Texture2D" uid="uid://v63tedvdoml2" path="res://Sprites/board-overlay.png" id="6_7w8pq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jhoc"]
-size = Vector2(226, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwct"]
 size = Vector2(12, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jhoc"]
+size = Vector2(226, 20)
 
 [node name="Level" type="Node2D"]
 
@@ -26,24 +26,22 @@ texture = ExtResource("6_7w8pq")
 
 [node name="BricksContainer" type="Node" parent="."]
 
-[node name="WallTop" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="."]
 
-[node name="WallTop" type="CollisionShape2D" parent="WallTop"]
-z_index = 2
-position = Vector2(125, -6)
-shape = SubResource("RectangleShape2D_5jhoc")
-
-[node name="WallSides" type="StaticBody2D" parent="."]
-
-[node name="WallLeft" type="CollisionShape2D" parent="WallSides"]
+[node name="WallLeft" type="CollisionShape2D" parent="Walls"]
 z_index = 2
 position = Vector2(6, 88)
 shape = SubResource("RectangleShape2D_ehwct")
 
-[node name="WallRight" type="CollisionShape2D" parent="WallSides"]
+[node name="WallRight" type="CollisionShape2D" parent="Walls"]
 z_index = 2
 position = Vector2(244, 88.5)
 shape = SubResource("RectangleShape2D_ehwct")
+
+[node name="WallTop" type="CollisionShape2D" parent="Walls"]
+z_index = 2
+position = Vector2(125, -6)
+shape = SubResource("RectangleShape2D_5jhoc")
 
 [node name="PlayerItems" type="Node" parent="."]
 
