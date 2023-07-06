@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 var ball = preload("res://Entities/Ball.tscn")
 var ball_group
@@ -37,3 +37,8 @@ func _ball_bounce(current_ball):
 
 	current_ball.velocity.y = -current_ball.velocity.y
 	collide_sound.play()
+
+func hit(ball):
+	collide_sound.play()
+	
+	return false # We aren't handling the bounce (yet)

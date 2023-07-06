@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
 size = Vector2(14, 7)
 
-[node name="BrickSilver" type="Area2D"]
+[node name="BrickSilver" type="CharacterBody2D"]
 script = ExtResource("1_cr1hf")
 scores = 10
 hits = 2

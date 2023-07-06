@@ -26,14 +26,14 @@ texture = ExtResource("6_7w8pq")
 
 [node name="BricksContainer" type="Node" parent="."]
 
-[node name="WallTop" type="Area2D" parent="."]
+[node name="WallTop" type="StaticBody2D" parent="."]
 
 [node name="WallTop" type="CollisionShape2D" parent="WallTop"]
 z_index = 2
 position = Vector2(125, -6)
 shape = SubResource("RectangleShape2D_5jhoc")
 
-[node name="WallSides" type="Area2D" parent="."]
+[node name="WallSides" type="StaticBody2D" parent="."]
 
 [node name="WallLeft" type="CollisionShape2D" parent="WallSides"]
 z_index = 2
