@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctd7fvwoat1mi"]
+[gd_scene load_steps=11 format=3 uid="uid://ctd7fvwoat1mi"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4js7"]
 [ext_resource type="PackedScene" uid="uid://biske8rxjsnw1" path="res://Entities/Player.tscn" id="3_k45l6"]
+[ext_resource type="Texture2D" uid="uid://c554a2k4uiyu" path="res://Sprites/score-digit.png" id="4_1wg1c"]
 [ext_resource type="AudioStream" uid="uid://pcdjatobtke0" path="res://Sounds/player_bounce.mp3" id="4_a5yub"]
+[ext_resource type="Script" path="res://Scripts/Score.gd" id="4_jwrj1"]
 [ext_resource type="AudioStream" uid="uid://suy6f72nx8qr" path="res://Sounds/brick_collide.mp3" id="4_sbyut"]
 [ext_resource type="AudioStream" uid="uid://kf3vepo1kkdb" path="res://Sounds/brick_gold_collide.mp3" id="5_smn3j"]
 [ext_resource type="Texture2D" uid="uid://v63tedvdoml2" path="res://Sprites/board-overlay.png" id="6_7w8pq"]
@@ -49,6 +51,44 @@ shape = SubResource("RectangleShape2D_5jhoc")
 position = Vector2(126, 153)
 
 [node name="Balls" type="Node" parent="PlayerItems"]
+
+[node name="Score" type="Node" parent="PlayerItems"]
+script = ExtResource("4_jwrj1")
+
+[node name="Digit1" type="Sprite2D" parent="PlayerItems/Score"]
+z_index = 5
+position = Vector2(253, 167)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="Digit2" type="Sprite2D" parent="PlayerItems/Score"]
+z_index = 5
+position = Vector2(266, 167)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="Digit3" type="Sprite2D" parent="PlayerItems/Score"]
+z_index = 5
+position = Vector2(279, 167)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="Digit4" type="Sprite2D" parent="PlayerItems/Score"]
+z_index = 5
+position = Vector2(292, 167)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="Digit5" type="Sprite2D" parent="PlayerItems/Score"]
+z_index = 5
+position = Vector2(305, 167)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
 
 [node name="Sounds" type="Node" parent="."]
 

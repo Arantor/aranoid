@@ -20,7 +20,6 @@ func hit(ball):
 		hits -= 1
 		if hits < 1:
 			ball.player.score += scores
-			print("Added: " + str(scores) + ", total: " + str(ball.player.score))
 			queue_free()
 
 	return false # We aren't handling the bounce
