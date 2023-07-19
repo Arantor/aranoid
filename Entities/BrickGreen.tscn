@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://xmqxr3t7riou"]
+[gd_scene load_steps=5 format=3 uid="uid://xmqxr3t7riou"]
 
 [ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_6jpth"]
 [ext_resource type="Texture2D" uid="uid://cmgejh5ukuhb5" path="res://Sprites/brick-green.png" id="2_fyf4s"]
+[ext_resource type="Texture2D" uid="uid://dtd0unetnsl4t" path="res://Sprites/brick-shadow.png" id="3_kfdgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
 size = Vector2(14, 7)
@@ -12,9 +13,13 @@ scores = 3
 
 [node name="Image" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(9, 6)
+position = Vector2(7, 4)
 texture = ExtResource("2_fyf4s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 3.5)
 shape = SubResource("RectangleShape2D_p5kfe")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(11, 8)
+texture = ExtResource("3_kfdgf")
