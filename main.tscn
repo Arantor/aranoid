@@ -28,7 +28,12 @@ texture = ExtResource("6_7w8pq")
 
 [node name="BricksContainer" type="Node" parent="."]
 
+[node name="Powerups" type="Node" parent="."]
+
+[node name="PowerupEffects" type="Node" parent="."]
+
 [node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="WallLeft" type="CollisionShape2D" parent="Walls"]
 z_index = 2

@@ -8,6 +8,7 @@
 size = Vector2(14, 7)
 
 [node name="BrickBlue" type="CharacterBody2D"]
+collision_layer = 8
 script = ExtResource("1_hl8qg")
 scores = 4
 
