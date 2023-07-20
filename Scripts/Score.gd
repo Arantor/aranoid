@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var score = str(player.score).lpad(5)
 	for digit in range(0,5):
 		var digit_sprite = get_node("Digit" + str(digit + 1))

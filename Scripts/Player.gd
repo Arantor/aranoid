@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var ball = preload("res://Entities/Ball.tscn")
+var the_ball = preload("res://Entities/Ball.tscn")
 var ball_group
 var collide_sound
 var score = 0
@@ -14,7 +14,7 @@ func _ready():
 	
 	collide_sound = get_node('../../Sounds/PlayerSound')
 	
-	var current_ball = ball.instantiate()
+	var current_ball = the_ball.instantiate()
 	ball_group = get_node('../Balls')
 	ball_group.add_sibling.call_deferred(current_ball)
 	current_ball.position = Vector2(124, 150)
@@ -23,7 +23,7 @@ func _ready():
 	current_ball.ball_mode = current_ball.BALL_MODE.CAUGHT
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _input(event):
@@ -38,7 +38,7 @@ func _ball_bounce(current_ball):
 	current_ball.velocity.y = -current_ball.velocity.y
 	collide_sound.play()
 
-func hit(ball):
+func hit(_ball):
 	collide_sound.play()
 	
 	return false # We aren't handling the bounce (yet)
