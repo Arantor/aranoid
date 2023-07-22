@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv20foqws4eii"]
+
+[ext_resource type="Texture2D" uid="uid://cqs2oqvuojjrv" path="res://Sprites/Power.png" id="1_81ocu"]
+[ext_resource type="Script" path="res://Scripts/Power.gd" id="2_pks2v"]
+
+[node name="Power" type="Node"]
+script = ExtResource("2_pks2v")
+
+[node name="PowerContainer" type="Node2D" parent="."]
+
+[node name="Power" type="Sprite2D" parent="PowerContainer"]
+texture = ExtResource("1_81ocu")
+region_enabled = true
+region_rect = Rect2(0, 0, 45, 19)
