@@ -2,7 +2,12 @@
 
 Aranoid is a loose Arkanoid clone, written in Godot as a sort of learning exercise.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-3e8ecc.svg)](https://opensource.org/licenses/MIT)
+[![Language: Godot 4.0](https://img.shields.io/badge/language-Godot--4.0-3e8ecc)](https://godotengine.org/)
+
 Why the name? Well, I'm Arantor, it's my project, it's an Arkanoid clone, so... Ara-noid. I am mindful it's a _bit_ close to the original but I'm pretty certain no-one is going to be able to confuse them...
+
+![Aranoid](/Aranoid.png?raw=true)
 
 ## Art
 
