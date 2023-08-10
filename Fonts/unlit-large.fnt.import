@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://bk6hofltd6osx"
+path="res://.godot/imported/unlit-large.fnt-d14daceeec7caea046ec09b5b405e4db.fontdata"
+
+[deps]
+
+source_file="res://Fonts/unlit-large.fnt"
+dest_files=["res://.godot/imported/unlit-large.fnt-d14daceeec7caea046ec09b5b405e4db.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

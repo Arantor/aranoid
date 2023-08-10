@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://c0jh8oaysm33t"
+path="res://.godot/imported/lit-large.fnt-ae664e01074db9b1a2d369f517d97e2f.fontdata"
+
+[deps]
+
+source_file="res://Fonts/lit-large.fnt"
+dest_files=["res://.godot/imported/lit-large.fnt-ae664e01074db9b1a2d369f517d97e2f.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
