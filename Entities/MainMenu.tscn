@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://le1ksjvw4tue"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_tliy0"]
+[ext_resource type="Texture2D" uid="uid://cjarfov4tu20l" path="res://Sprites/Main-Menu.png" id="2_caga1"]
+[ext_resource type="FontFile" uid="uid://c0jh8oaysm33t" path="res://Fonts/lit-large.fnt" id="3_4c4rt"]
+[ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="4_kch2o"]
+[ext_resource type="FontFile" uid="uid://bk6hofltd6osx" path="res://Fonts/unlit-large.fnt" id="5_s67kd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_apdpc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cj7vs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jpyms"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_tliy0")
+
+[node name="Board" type="Sprite2D" parent="."]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
+show_behind_parent = true
+z_index = -1
+position = Vector2(160, 90)
+texture = ExtResource("4_kch2o")
+
+[node name="Mainmenu" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(125, 90)
+texture = ExtResource("2_caga1")
+
+[node name="Title" type="Label" parent="Mainmenu"]
+offset_left = -58.0
+offset_top = -90.0
+offset_right = 56.0
+offset_bottom = -61.0
+theme_override_fonts/font = ExtResource("3_4c4rt")
+text = "ARANOID"
+label_settings = SubResource("LabelSettings_apdpc")
+
+[node name="Play" type="Label" parent="Mainmenu"]
+offset_left = -58.0
+offset_top = -40.0
+offset_right = 12.0
+offset_bottom = -11.0
+theme_override_fonts/font = ExtResource("5_s67kd")
+text = "PLAY"
+label_settings = SubResource("LabelSettings_cj7vs")
+
+[node name="Exit" type="Label" parent="Mainmenu"]
+offset_left = -58.0
+offset_top = 61.0
+offset_right = 5.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("5_s67kd")
+text = "EXIT"
+label_settings = SubResource("LabelSettings_jpyms")
