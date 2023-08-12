@@ -41,6 +41,9 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
+		if not player.is_active():
+			return
+
 		if ball_mode == BALL_MODE.CAUGHT:
 			velocity = stored_velocity
 			ball_mode = BALL_MODE.IN_MOTION

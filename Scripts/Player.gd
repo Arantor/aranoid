@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var init = 0.0
 var the_ball = preload("res://Entities/Ball.tscn")
 var ball_group
 var collide_sound
@@ -7,6 +8,7 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	init = 0.0
 	position.x = 124
 	position.y = 155
 	var levels_container = get_node('../../BricksContainer')
@@ -24,6 +26,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	init += delta
 	pass
 
 func _input(event):
@@ -37,6 +40,9 @@ func _ball_bounce(current_ball):
 
 	current_ball.velocity.y = -current_ball.velocity.y
 	collide_sound.play()
+
+func is_active():
+	return init >= 0.1
 
 func hit(_ball):
 	collide_sound.play()
