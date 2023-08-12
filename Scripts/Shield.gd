@@ -13,6 +13,7 @@ func _ready():
 	powerupeffects.add_child(powerbar)
 	powerbar.show(Vector2(267, 25), 1.0)
 	lifetimerdefault = $LifeTimer.wait_time
+	$SoundUp.play()
 
 func _process(_delta):
 	if $FadeOutTimer.is_stopped():
@@ -33,6 +34,7 @@ func _on_fade_out_timer_timeout():
 # Once the life timer has expired, fade out and kill the shield.
 func _on_life_timer_timeout():
 	$FadeOutTimer.start()
+	$SoundDown.play()
 
 # Start the life timer of the thing once it's faded in.
 func _on_fade_in_timer_timeout():
