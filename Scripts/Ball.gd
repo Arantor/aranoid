@@ -35,9 +35,12 @@ func _physics_process(delta):
 			timer += delta
 			if timer > 15:
 				var new_velocity = velocity * 1.25
-				if sqrt((new_velocity.x * new_velocity.x) + (new_velocity.y * new_velocity.y)) < 320:
+				if get_velocity_from_vector(new_velocity) < 320:
 					velocity = new_velocity
 				timer = 0
+
+func get_velocity_from_vector(vel):
+	return sqrt((vel.x * vel.x) + (vel.y * vel.y))
 
 func _input(event):
 	if event is InputEventMouseButton:
