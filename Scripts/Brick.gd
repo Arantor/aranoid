@@ -10,7 +10,8 @@ var powerups
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	powerups = {
-		'shield': preload("res://Entities/PowerupShield.tscn")
+		'shield': preload("res://Entities/PowerupShield.tscn"),
+		'multiball': preload("res://Entities/PowerupMultiball.tscn")
 	}
 	if metallic:
 		sound = get_node('../../Sounds/BrickMetalSound')
@@ -36,7 +37,12 @@ func spawn_powerup():
 		return
 
 	var powerup = randi_range(1, 100)
-	if powerup > 50:
+	if powerup > 50 and powerup <= 75:
+		var multiball = powerups['multiball'].instantiate()
+		powerups_container.add_child(multiball)
+		multiball.position = Vector2(position.x + 7, position.y + 17)
+		multiball.velocity = Vector2(0, 30)
+	elif powerup > 75:
 		var shield = powerups['shield'].instantiate()
 		powerups_container.add_child(shield)
 		shield.position = Vector2(position.x + 7, position.y + 17)

@@ -42,6 +42,18 @@ func _physics_process(delta):
 func get_velocity_from_vector(vel):
 	return sqrt((vel.x * vel.x) + (vel.y * vel.y))
 
+func get_angle_from_vector(vel):
+	var angle = rad_to_deg(atan(vel.y / vel.x))
+	if vel.x < 0:
+		angle += 180
+	elif vel.y < 0:
+		angle += 360
+	return angle
+
+func get_new_vector_from_velocity_angle(velocity, angle):
+	var rad_angle = deg_to_rad(angle)
+	return Vector2(cos(rad_angle) * velocity, sin(rad_angle) * velocity)
+
 func _input(event):
 	if event is InputEventMouseButton:
 		if not player.is_active():
@@ -50,3 +62,25 @@ func _input(event):
 		if ball_mode == BALL_MODE.CAUGHT:
 			velocity = stored_velocity
 			ball_mode = BALL_MODE.IN_MOTION
+
+func clone():
+	var clone = duplicate()
+	clone.stored_velocity = stored_velocity
+	clone.velocity = velocity
+	clone.ball_mode = ball_mode
+	clone.timer = timer
+	return clone
+
+func multi_split(count):
+	if count == 3:
+		var deviance = 10
+		var ball1 = clone()
+		var ball2 = clone()
+		var current_vel = get_velocity_from_vector(velocity)
+		var current_angle = get_angle_from_vector(velocity)
+		ball1.velocity = get_new_vector_from_velocity_angle(current_vel, current_angle - deviance)
+		ball2.velocity = get_new_vector_from_velocity_angle(current_vel, current_angle + deviance)
+		get_parent().add_child(ball1)
+		get_parent().add_child(ball2)
+	else:
+		print("Multi split called with unsupported number: " + str(count))
