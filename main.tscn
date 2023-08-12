@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctd7fvwoat1mi"]
+[gd_scene load_steps=12 format=3 uid="uid://ctd7fvwoat1mi"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4js7"]
 [ext_resource type="PackedScene" uid="uid://biske8rxjsnw1" path="res://Entities/Player.tscn" id="3_k45l6"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://suy6f72nx8qr" path="res://Sounds/brick_collide.mp3" id="4_sbyut"]
 [ext_resource type="AudioStream" uid="uid://kf3vepo1kkdb" path="res://Sounds/brick_gold_collide.mp3" id="5_smn3j"]
 [ext_resource type="Texture2D" uid="uid://v63tedvdoml2" path="res://Sprites/board-overlay.png" id="6_7w8pq"]
+[ext_resource type="AudioStream" uid="uid://ct10vtfxsg3sw" path="res://Sounds/multiball.mp3" id="9_d7abw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwct"]
 size = Vector2(12, 177)
@@ -105,3 +106,6 @@ stream = ExtResource("4_sbyut")
 
 [node name="BrickMetalSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("5_smn3j")
+
+[node name="MultiballSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_d7abw")
