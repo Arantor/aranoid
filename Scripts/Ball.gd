@@ -10,7 +10,7 @@ var timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_node('../Player')
+	player = get_node('../../Player')
 
 func _physics_process(delta):
 	match ball_mode:

@@ -18,7 +18,7 @@ func _ready():
 	
 	var current_ball = the_ball.instantiate()
 	ball_group = get_node('../Balls')
-	ball_group.add_sibling.call_deferred(current_ball)
+	ball_group.add_child.call_deferred(current_ball)
 	current_ball.position = Vector2(124, 150)
 	current_ball.stored_velocity = Vector2(60, -60)
 	current_ball.ball_to_bat = 0
