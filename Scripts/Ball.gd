@@ -73,7 +73,7 @@ func clone():
 
 func multi_split(count):
 	if count == 3:
-		var deviance = 10
+		var deviance = 15
 		var ball1 = clone()
 		var ball2 = clone()
 		var current_vel = get_velocity_from_vector(velocity)
