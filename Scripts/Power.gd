@@ -22,7 +22,7 @@ func hide():
 	visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	$PowerContainer.visible = visible
 	if visible:
 		var width = ceil(bar * 11) * 4 + 1

@@ -11,7 +11,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var pos = get_viewport().get_mouse_position()
 	if pos.y >= 53 && pos.y <= 75:
 		$Mainmenu/Play.label_settings.set_font(litfont)
