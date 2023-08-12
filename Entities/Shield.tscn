@@ -1,28 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://dspnikvhsnilf"]
+[gd_scene load_steps=7 format=3 uid="uid://dspnikvhsnilf"]
 
 [ext_resource type="Texture2D" uid="uid://cdeaoj1td5f7" path="res://Sprites/shield.png" id="1_l38jq"]
 [ext_resource type="Script" path="res://Scripts/Shield.gd" id="1_nappp"]
 [ext_resource type="AudioStream" uid="uid://b4njyijrgy151" path="res://Sounds/shield-power-up.mp3" id="3_xkwy3"]
 [ext_resource type="AudioStream" uid="uid://bvp21a4eyvjwl" path="res://Sounds/shield-power-down.mp3" id="4_8vjwp"]
+[ext_resource type="AudioStream" uid="uid://dncl43q21106a" path="res://Sounds/shield-bounce.mp3" id="5_lm8hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbr10"]
 size = Vector2(227, 11)
 
-[node name="Shield" type="Node2D"]
+[node name="Shield" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_nappp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(113.5, 5.5)
+shape = SubResource("RectangleShape2D_mbr10")
 
 [node name="Shield" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(114, 6)
 texture = ExtResource("1_l38jq")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(113.5, 5.5)
-shape = SubResource("RectangleShape2D_mbr10")
 
 [node name="FadeOutTimer" type="Timer" parent="."]
 
@@ -38,6 +36,9 @@ stream = ExtResource("3_xkwy3")
 
 [node name="SoundDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_8vjwp")
+
+[node name="SoundBounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lm8hr")
 
 [connection signal="timeout" from="FadeOutTimer" to="." method="_on_fade_out_timer_timeout"]
 [connection signal="timeout" from="FadeInTimer" to="." method="_on_fade_in_timer_timeout"]

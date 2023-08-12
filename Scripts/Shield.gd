@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 var powerbar_node
 var powerbar
@@ -39,3 +39,8 @@ func _on_life_timer_timeout():
 # Start the life timer of the thing once it's faded in.
 func _on_fade_in_timer_timeout():
 	$LifeTimer.start()
+
+func hit(_ball):
+	if not $SoundBounce.playing:
+		$SoundBounce.play()
+	return false # We aren't handling the bounce
