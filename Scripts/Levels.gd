@@ -33,6 +33,17 @@ func populate_level(level):
 				brick.position.x = column * 7.5 + 13
 				brick.position.y = row * 8 + 5
 
+	var levelcounter = level.get_parent().get_node("PlayerItems/LevelCounter")
+	var score = str(CurrentLevel).lpad(3)
+	for digit in range(0,3):
+		var digit_sprite = levelcounter.get_node("Digit" + str(digit + 1))
+		var digit_value = score.substr(digit, 1)
+		if digit_value == " ":
+			digit_sprite.set_region_rect(Rect2(0, 0, 13, 18))
+		else:
+			digit_sprite.set_region_rect(Rect2(0, 18 * digit_value.to_int(), 13, 18))
+			pass
+
 
 func get_level(level):
 	match level:
