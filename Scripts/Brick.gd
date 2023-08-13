@@ -14,9 +14,9 @@ func _ready():
 		'multiball': preload("res://Entities/PowerupMultiball.tscn")
 	}
 	if metallic:
-		sound = get_node('../../Sounds/BrickMetalSound')
+		sound = get_node_or_null('../../Sounds/BrickMetalSound')
 	else:
-		sound = get_node('../../Sounds/BrickSound')
+		sound = get_node_or_null('../../Sounds/BrickSound')
 
 func hit(ball):
 	sound.play()
