@@ -1,15 +1,8 @@
 extends Node
 
-var player
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	player = get_node('../Player')
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var score = str(player.score).lpad(5)
+	var score = str(Levels.CurrentScore).lpad(5)
 	for digit in range(0,5):
 		var digit_sprite = get_node("Digit" + str(digit + 1))
 		var digit_value = score.substr(digit, 1)

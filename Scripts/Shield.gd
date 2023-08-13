@@ -26,10 +26,12 @@ func _process(_delta):
 		$Shield.modulate = Color(1, 1, 1, $FadeOutTimer.time_left)
 		powerbar.hide()
 
-
-func _on_fade_out_timer_timeout():
+func shutdown():
 	powerbar.queue_free()
 	queue_free()
+
+func _on_fade_out_timer_timeout():
+	shutdown()
 
 # Once the life timer has expired, fade out and kill the shield.
 func _on_life_timer_timeout():

@@ -18,15 +18,16 @@ func _ready():
 	else:
 		sound = get_node_or_null('../../Sounds/BrickSound')
 
-func hit(ball):
+func hit(_ball):
 	sound.play()
 	
 	if destructible:
 		hits -= 1
 		if hits < 1:
-			ball.player.score += scores
+			Levels.CurrentScore += scores
 			spawn_powerup()
 			queue_free()
+			Levels.check_advance_level()
 
 	return false # We aren't handling the bounce
 

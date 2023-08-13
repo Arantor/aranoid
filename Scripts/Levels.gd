@@ -1,6 +1,7 @@
 extends Node
 
 var CurrentLevel = 0
+var CurrentScore = 0
 var bricks = []
 
 # Called when the node enters the scene tree for the first time.
@@ -49,9 +50,15 @@ func get_level(level):
 	match level:
 		1:
 			return [
+				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+			]
+		2:
+			return [
 				[11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11],
 				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-				[ 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2],
+				[ 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2],
 				[ 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3],
 				[ 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4],
 				[ 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5],
@@ -59,3 +66,42 @@ func get_level(level):
 			]
 
 	return []
+
+func check_advance_level():
+	var bricks_container = get_tree().get_current_scene().get_node("BricksContainer")
+	var current_bricks = bricks_container.get_children()
+	var left = 0;
+	for brick in current_bricks:
+		if not brick.destructible:
+			continue
+		if brick.hits >= 1:
+			left += 1
+
+	# If no bricks left, time for next level!
+	if left == 0:
+		# Remove any other bricks.
+		for brick in current_bricks:
+			brick.queue_free()
+		# Remove any balls.
+		var ball_container = get_tree().get_current_scene().get_node("PlayerItems/Balls")
+		var balls = ball_container.get_children()
+		for ball in balls:
+			ball.free()
+
+		# And any powerups on screen.
+		var powerups = get_tree().get_current_scene().get_node("Powerups").get_children()
+		for powerup in powerups:
+			powerup.free()
+
+		var powerupeffects = get_tree().get_current_scene().get_node("PowerupEffects").get_children()
+		for powerup in powerupeffects:
+			powerup.free()
+
+		# And nuke the player entity.
+		get_tree().get_current_scene().get_node("PlayerItems/Player").free()
+
+		# Next level, and spawn the player into it!
+		CurrentLevel += 1
+		var player = preload("res://Entities/Player.tscn")
+		var the_player = player.instantiate()
+		get_tree().get_current_scene().get_node("PlayerItems").add_child(the_player)

@@ -4,7 +4,6 @@ var init = 0.0
 var the_ball = preload("res://Entities/Ball.tscn")
 var ball_group
 var collide_sound
-var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
