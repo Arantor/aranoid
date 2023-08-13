@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://dr4ih4cnd4k0"
+path="res://.godot/imported/unlit-small.fnt-6c70f84568803a9ed0772a77512a8fbc.fontdata"
+
+[deps]
+
+source_file="res://Fonts/unlit-small.fnt"
+dest_files=["res://.godot/imported/unlit-small.fnt-6c70f84568803a9ed0772a77512a8fbc.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
