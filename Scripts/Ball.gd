@@ -50,9 +50,9 @@ func get_angle_from_vector(vel):
 		angle += 360
 	return angle
 
-func get_new_vector_from_velocity_angle(velocity, angle):
+func get_new_vector_from_velocity_angle(vel, angle):
 	var rad_angle = deg_to_rad(angle)
-	return Vector2(cos(rad_angle) * velocity, sin(rad_angle) * velocity)
+	return Vector2(cos(rad_angle) * vel, sin(rad_angle) * vel)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -64,12 +64,12 @@ func _input(event):
 			ball_mode = BALL_MODE.IN_MOTION
 
 func clone():
-	var clone = duplicate()
-	clone.stored_velocity = stored_velocity
-	clone.velocity = velocity
-	clone.ball_mode = ball_mode
-	clone.timer = timer
-	return clone
+	var ball_clone = duplicate()
+	ball_clone.stored_velocity = stored_velocity
+	ball_clone.velocity = velocity
+	ball_clone.ball_mode = ball_mode
+	ball_clone.timer = timer
+	return ball_clone
 
 func multi_split(count):
 	if count == 3:
