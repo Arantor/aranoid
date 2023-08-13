@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5fgp5spy8a2k"]
+
+[ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_ajnox"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay2.gd" id="1_hc7qw"]
+[ext_resource type="PackedScene" uid="uid://jhttbnk5ug1m" path="res://Entities/BrickBlue.tscn" id="2_cx636"]
+[ext_resource type="PackedScene" uid="uid://ckggcaamxkk3t" path="res://Entities/BrickSilver.tscn" id="3_88h5h"]
+[ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="3_jvbr6"]
+[ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="4_n8ebu"]
+[ext_resource type="PackedScene" uid="uid://b4v24ehhh645k" path="res://Entities/BrickGold.tscn" id="4_wpqlx"]
+[ext_resource type="Texture2D" uid="uid://68uslysbtfry" path="res://Sprites/menu-sidebar-overlay.png" id="5_nkr43"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8xn5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_26rum"]
+
+[node name="HowToPlay2" type="Node2D"]
+script = ExtResource("1_hc7qw")
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_ajnox")
+
+[node name="BrickBlue" parent="Board" instance=ExtResource("2_cx636")]
+position = Vector2(-142, -51)
+
+[node name="BrickSilver" parent="Board" instance=ExtResource("3_88h5h")]
+position = Vector2(-142, -11)
+
+[node name="BrickGold" parent="Board" instance=ExtResource("4_wpqlx")]
+position = Vector2(-142, 25)
+
+[node name="NormalBricks" type="Label" parent="Board"]
+offset_left = -115.0
+offset_top = -64.0
+offset_right = 38.0
+offset_bottom = -41.0
+theme_override_fonts/font = ExtResource("4_n8ebu")
+text = "NORMAL - 1 HIT"
+
+[node name="SilverBricks" type="Label" parent="Board"]
+offset_left = -115.0
+offset_top = -25.0
+offset_right = 46.0
+offset_bottom = -2.0
+theme_override_fonts/font = ExtResource("4_n8ebu")
+text = "SILVER - 2 HITS"
+
+[node name="GoldBricks" type="Label" parent="Board"]
+offset_left = -115.0
+offset_top = 12.0
+offset_right = 71.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("4_n8ebu")
+text = "GOLD - NORMAL
+BALL CAN'T BREAK
+GOLD BRICKS"
+
+[node name="HowToPlay" type="Label" parent="Board"]
+offset_left = -96.0
+offset_top = -92.0
+offset_right = 37.0
+offset_bottom = -63.0
+theme_override_fonts/font = ExtResource("3_jvbr6")
+text = "HOW TO PLAY"
+
+[node name="Sidebar" type="Sprite2D" parent="."]
+position = Vector2(275, 148)
+texture = ExtResource("5_nkr43")
+
+[node name="Prev" type="Label" parent="Sidebar"]
+offset_left = -19.0
+offset_top = -38.0
+offset_right = 37.0
+offset_bottom = -9.0
+theme_override_fonts/font = ExtResource("4_n8ebu")
+text = "PREV"
+label_settings = SubResource("LabelSettings_a8xn5")
+
+[node name="Next" type="Label" parent="Sidebar"]
+offset_left = -20.0
+offset_top = 3.0
+offset_right = 34.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("4_n8ebu")
+text = "NEXT"
+label_settings = SubResource("LabelSettings_26rum")

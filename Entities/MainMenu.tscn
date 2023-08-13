@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://le1ksjvw4tue"]
+[gd_scene load_steps=10 format=3 uid="uid://le1ksjvw4tue"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_tliy0"]
 [ext_resource type="Texture2D" uid="uid://cjarfov4tu20l" path="res://Sprites/Main-Menu.png" id="2_caga1"]
@@ -9,6 +9,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_apdpc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cj7vs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aw883"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jpyms"]
 
@@ -28,27 +30,36 @@ position = Vector2(125, 90)
 texture = ExtResource("2_caga1")
 
 [node name="Title" type="Label" parent="Mainmenu"]
-offset_left = -58.0
+offset_left = -29.0
 offset_top = -90.0
-offset_right = 56.0
+offset_right = 57.0
 offset_bottom = -61.0
 theme_override_fonts/font = ExtResource("3_4c4rt")
 text = "ARANOID"
 label_settings = SubResource("LabelSettings_apdpc")
 
 [node name="Play" type="Label" parent="Mainmenu"]
-offset_left = -58.0
+offset_left = -60.0
 offset_top = -40.0
-offset_right = 12.0
+offset_right = 10.0
 offset_bottom = -11.0
 theme_override_fonts/font = ExtResource("5_s67kd")
 text = "PLAY"
 label_settings = SubResource("LabelSettings_cj7vs")
 
+[node name="HowToPlay" type="Label" parent="Mainmenu"]
+offset_left = -60.0
+offset_top = -15.0
+offset_right = 73.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("5_s67kd")
+text = "HOW TO PLAY"
+label_settings = SubResource("LabelSettings_aw883")
+
 [node name="Exit" type="Label" parent="Mainmenu"]
-offset_left = -58.0
+offset_left = -60.0
 offset_top = 61.0
-offset_right = 5.0
+offset_right = 3.0
 offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("5_s67kd")
 text = "EXIT"

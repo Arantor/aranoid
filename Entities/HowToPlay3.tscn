@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://cv128on788fpu"]
+
+[ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_5qejw"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay3.gd" id="1_amb3q"]
+[ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="2_ea2v1"]
+[ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="3_g61jw"]
+[ext_resource type="Texture2D" uid="uid://dib10dc4bx5ki" path="res://Sprites/powerup-shield.png" id="4_ch8k7"]
+[ext_resource type="Texture2D" uid="uid://b4qqjawyj1xo2" path="res://Sprites/powerup-shield-shadow.png" id="5_dn6f7"]
+[ext_resource type="Texture2D" uid="uid://68uslysbtfry" path="res://Sprites/menu-sidebar-overlay.png" id="6_q37b8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wtula"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3adj"]
+
+[node name="HowToPlay3" type="Node2D"]
+script = ExtResource("1_amb3q")
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_5qejw")
+
+[node name="HowToPlay" type="Label" parent="Board"]
+offset_left = -96.0
+offset_top = -92.0
+offset_right = 37.0
+offset_bottom = -63.0
+theme_override_fonts/font = ExtResource("2_ea2v1")
+text = "HOW TO PLAY"
+
+[node name="Powerups" type="Label" parent="Board"]
+offset_left = -140.0
+offset_top = -62.0
+offset_right = 59.0
+offset_bottom = -16.0
+theme_override_fonts/font = ExtResource("3_g61jw")
+text = "BROKEN BRICKS CAN
+DROP POWERUPS:"
+
+[node name="Powerup-shield" type="Sprite2D" parent="Board"]
+z_index = 2
+position = Vector2(-132, 7)
+texture = ExtResource("4_ch8k7")
+
+[node name="Powerup-shield-shadow" type="Sprite2D" parent="Board/Powerup-shield"]
+z_as_relative = false
+position = Vector2(4, 4)
+texture = ExtResource("5_dn6f7")
+
+[node name="Shield" type="Label" parent="Board"]
+offset_left = -115.0
+offset_top = -10.0
+offset_right = -19.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("2_ea2v1")
+text = "SHIELD"
+
+[node name="Label" type="Label" parent="Board"]
+offset_left = -115.0
+offset_top = 11.0
+offset_right = 21.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("3_g61jw")
+text = "BALL CAN'T FALL
+OFF THE BOARD
+FOR 30 SECONDS"
+
+[node name="Sidebar" type="Sprite2D" parent="."]
+position = Vector2(275, 148)
+texture = ExtResource("6_q37b8")
+
+[node name="Prev" type="Label" parent="Sidebar"]
+offset_left = -19.0
+offset_top = -38.0
+offset_right = 37.0
+offset_bottom = -9.0
+theme_override_fonts/font = ExtResource("3_g61jw")
+text = "PREV"
+label_settings = SubResource("LabelSettings_wtula")
+
+[node name="Next" type="Label" parent="Sidebar"]
+offset_left = -20.0
+offset_top = 3.0
+offset_right = 34.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("3_g61jw")
+text = "NEXT"
+label_settings = SubResource("LabelSettings_y3adj")

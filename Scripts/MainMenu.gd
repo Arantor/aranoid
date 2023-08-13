@@ -17,6 +17,11 @@ func _process(_delta):
 		$Mainmenu/Play.label_settings.set_font(litfont)
 	else:
 		$Mainmenu/Play.label_settings.set_font(unlitfont)
+	
+	if pos.y >= 78 && pos.y <= 97:
+		$Mainmenu/HowToPlay.label_settings.set_font(litfont)
+	else:
+		$Mainmenu/HowToPlay.label_settings.set_font(unlitfont)
 
 	if pos.y >= 155 && pos.y <= 174:
 		$Mainmenu/Exit.label_settings.set_font(litfont)
@@ -35,6 +40,9 @@ func _input(event):
 		if pos.y >= 53 && pos.y <= 75:
 			Levels.begin()
 			get_tree().change_scene_to_file("res://main.tscn")
+			
+		if pos.y >= 78 && pos.y <= 97:
+			get_tree().change_scene_to_file("res://Entities/HowToPlay1.tscn")
 
 		if pos.y >= 155 && pos.y <= 174:
 			get_tree().quit()
