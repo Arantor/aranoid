@@ -14,7 +14,7 @@ position = Vector2(1, 9)
 texture = ExtResource("1_c03q4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-17, 7, -17, 4, -13, 0, 14, 0, 18, 4, 18, 7, 21, 7, 19, 13, 12, 17, 7, 18, -7, 18, -12, 17, -18, 13, -20, 7)
+polygon = PackedVector2Array(-20, 3, -16, 0, 18, 0, 21, 3, 21, 7, 19, 13, 12, 17, 7, 18, -7, 18, -12, 17, -18, 13, -20, 7)
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(5, 13)
