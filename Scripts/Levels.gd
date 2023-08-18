@@ -11,17 +11,16 @@ func begin():
 	CurrentLevel = 1
 	bricks = [
 		false,
-		preload("res://Entities/BrickRed.tscn"),
-		preload("res://Entities/BrickLightBlue.tscn"),
-		preload("res://Entities/BrickGreen.tscn"),
-		preload("res://Entities/BrickBlue.tscn"),
-		preload("res://Entities/BrickBrown.tscn"),
-		false,
-		false,
-		false,
-		false,
-		preload("res://Entities/BrickSilver.tscn"),
 		preload("res://Entities/BrickGold.tscn"),
+		preload("res://Entities/BrickSilver.tscn"),
+		preload("res://Entities/BrickBrown.tscn"),
+		preload("res://Entities/BrickRed.tscn"),
+		preload("res://Entities/BrickOrange.tscn"),
+		preload("res://Entities/BrickYellow.tscn"),
+		preload("res://Entities/BrickGreen.tscn"),
+		preload("res://Entities/BrickMintGreen.tscn"),
+		preload("res://Entities/BrickLightBlue.tscn"),
+		preload("res://Entities/BrickBlue.tscn"),
 	]
 
 func populate_level(level):
@@ -50,19 +49,17 @@ func get_level(level):
 	match level:
 		1:
 			return [
-				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+				[ 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2],
+				[ 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9],
+				[ 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3],
+				[ 5, 0, 6, 0, 7, 0, 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4],
 			]
 		2:
 			return [
-				[11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11, 0,11],
-				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ,1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-				[ 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2],
 				[ 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3],
 				[ 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4],
 				[ 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5],
-				[10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10, 0,10],
 			]
 
 	return []
