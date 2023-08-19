@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctd7fvwoat1mi"]
+[gd_scene load_steps=14 format=3 uid="uid://ctd7fvwoat1mi"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4js7"]
 [ext_resource type="PackedScene" uid="uid://biske8rxjsnw1" path="res://Entities/Player.tscn" id="3_k45l6"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://kf3vepo1kkdb" path="res://Sounds/brick_gold_collide.mp3" id="5_smn3j"]
 [ext_resource type="Texture2D" uid="uid://v63tedvdoml2" path="res://Sprites/board-overlay.png" id="6_7w8pq"]
 [ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="6_kq815"]
+[ext_resource type="Script" path="res://Scripts/BricksRemaining.gd" id="7_rgihb"]
 [ext_resource type="AudioStream" uid="uid://ct10vtfxsg3sw" path="res://Sounds/multiball.mp3" id="9_d7abw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwct"]
@@ -125,6 +126,30 @@ region_rect = Rect2(0, 180, 13, 18)
 [node name="Digit3" type="Sprite2D" parent="PlayerItems/LevelCounter"]
 z_index = 5
 position = Vector2(305, 144)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="BricksRemaining" type="Node" parent="PlayerItems"]
+script = ExtResource("7_rgihb")
+
+[node name="Digit1" type="Sprite2D" parent="PlayerItems/BricksRemaining"]
+z_index = 5
+position = Vector2(257, 104)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="Digit2" type="Sprite2D" parent="PlayerItems/BricksRemaining"]
+z_index = 5
+position = Vector2(280, 104)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="Digit3" type="Sprite2D" parent="PlayerItems/BricksRemaining"]
+z_index = 5
+position = Vector2(303, 104)
 texture = ExtResource("4_1wg1c")
 region_enabled = true
 region_rect = Rect2(0, 180, 13, 18)
