@@ -68,6 +68,7 @@ func check_advance_level():
 	var bricks_container = get_tree().get_current_scene().get_node("BricksContainer")
 	var current_bricks = bricks_container.get_children()
 	var left = 0;
+
 	for brick in current_bricks:
 		if not brick.destructible:
 			continue
@@ -76,15 +77,24 @@ func check_advance_level():
 
 	# If no bricks left, time for next level! If not, not yet...
 	print("Bricks left: " + str(left))
-	var child_count = get_tree().get_current_scene().get_node("PlayerItems/Balls").get_child_count()
-	print("Balls in play: " + str(child_count))
-	if left > 0:
-		return false
 
-	# Remove any other bricks.
+	if left > 0:
+		return false # We're not advancing the level
+
+	advance_level()
+
+	# Lastly, make sure we don't allow for spawning a powerup off the last brick!
+	return true
+
+func advance_level():
+	var bricks_container = get_tree().get_current_scene().get_node("BricksContainer")
+	var current_bricks = bricks_container.get_children()
+
+	# Remove any bricks.
 	for brick in current_bricks:
 		print("Freeing: " + str(brick))
 		brick.queue_free()
+
 	# Remove any balls.
 	var ball_container = get_tree().get_current_scene().get_node("PlayerItems/Balls")
 	var balls = ball_container.get_children()
@@ -108,6 +118,3 @@ func check_advance_level():
 	print("Resetting player")
 	CurrentLevel += 1
 	get_tree().get_current_scene().get_node("PlayerItems/Player").reset_player()
-
-	# Lastly, make sure we don't allow for spawning a powerup off the last brick!
-	return true
