@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7u08tg3wow12"]
+
+[ext_resource type="Script" path="res://Scripts/Superball.gd" id="1_n6yle"]
+
+[node name="Superball" type="Node"]
+script = ExtResource("1_n6yle")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 45.0
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

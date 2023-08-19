@@ -7,6 +7,7 @@ var ball_to_bat = 0
 var player
 var stored_velocity
 var timer = 0
+var super_ball = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -69,6 +70,7 @@ func clone():
 	ball_clone.velocity = velocity
 	ball_clone.ball_mode = ball_mode
 	ball_clone.timer = timer
+	ball_clone.super_ball = super_ball
 	return ball_clone
 
 func multi_split(count):
@@ -84,3 +86,13 @@ func multi_split(count):
 		get_parent().add_child(ball2)
 	else:
 		print("Multi split called with unsupported number: " + str(count))
+
+func set_superball():
+	super_ball = true
+	$Ball.visible = false
+	$"Ball-super".visible = true
+
+func set_nonsuperball():
+	super_ball = false
+	$Ball.visible = true
+	$"Ball-super".visible = false

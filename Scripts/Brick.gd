@@ -11,6 +11,7 @@ var powerups
 func _ready():
 	powerups = {
 		'shield': preload("res://Entities/PowerupShield.tscn"),
+		'superball': preload("res://Entities/PowerupSuperball.tscn"),
 		'multiball': preload("res://Entities/PowerupMultiball.tscn")
 	}
 	if metallic:
@@ -18,16 +19,33 @@ func _ready():
 	else:
 		sound = get_node_or_null('../../Sounds/BrickSound')
 
-func hit(_ball):
+func hit(ball):
+	# If the ball is a super ball, we're "handling the bounce" i.e. nothing.
+	if ball.super_ball:
+		Levels.CurrentScore += scores
+		scores = 0
+		print("Superball destroyed brick")
+		queue_free()
+		print("Checking for advance level")
+		if not Levels.check_advance_level():
+			print("Init powerup")
+			spawn_powerup()
+		return true
+
 	sound.play()
-	
+
 	if destructible:
 		hits -= 1
 		if hits < 1:
+			print("Applying score")
 			Levels.CurrentScore += scores
-			spawn_powerup()
+			scores = 0
+			print("Destroying brick")
 			queue_free()
-			Levels.check_advance_level()
+			print("Checking for advance level")
+			if not Levels.check_advance_level():
+				print("Init powerup")
+				spawn_powerup()
 
 	return false # We aren't handling the bounce
 
@@ -38,13 +56,17 @@ func spawn_powerup():
 		return
 
 	var powerup = randi_range(1, 100)
+	var newpowerup = ''
+
+	if powerup > 25 and powerup <= 50:
+		newpowerup = 'superball'
 	if powerup > 50 and powerup <= 75:
-		var multiball = powerups['multiball'].instantiate()
-		powerups_container.add_child(multiball)
-		multiball.position = Vector2(position.x + 7, position.y + 17)
-		multiball.velocity = Vector2(0, 30)
+		newpowerup = 'multiball'
 	elif powerup > 75:
-		var shield = powerups['shield'].instantiate()
-		powerups_container.add_child(shield)
-		shield.position = Vector2(position.x + 7, position.y + 17)
-		shield.velocity = Vector2(0, 30)
+		newpowerup = 'shield'
+
+	if newpowerup:
+		var newpowerup_instance = powerups[newpowerup].instantiate()
+		powerups_container.add_child(newpowerup_instance)
+		newpowerup_instance.position = Vector2(position.x + 7, position.y + 17)
+		newpowerup_instance.velocity = Vector2(0, 30)
