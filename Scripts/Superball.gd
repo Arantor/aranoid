@@ -27,12 +27,13 @@ func _process(_delta):
 		powerbar.set_value($LifeTimer.time_left / lifetimerdefault)
 
 func shutdown():
+	var balls_container = get_node('../../PlayerItems/Balls')
+	for ball in balls_container.get_children():
+		if ball.has_method('set_nonsuperball'):
+			ball.set_nonsuperball()
 	powerbar.queue_free()
 	queue_free()
 
 # Once the life timer has expired, fade out and kill the shield.
 func _on_life_timer_timeout():
-	var balls_container = get_node('../../PlayerItems/Balls')
-	for ball in balls_container.get_children():
-		if ball.has_method('set_nonsuperball'):
-			ball.set_nonsuperball()
+	shutdown()
