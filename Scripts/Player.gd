@@ -7,14 +7,20 @@ var collide_sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	collide_sound = get_node('../../Sounds/PlayerSound')
+	reset_player()
+
+func reset_player():
+	print("Player init")
 	init = 0.0
 	position.x = 124
 	position.y = 155
+
+	print("Level population")
 	var levels_container = get_node('../../BricksContainer')
 	Levels.populate_level(levels_container)
-	
-	collide_sound = get_node('../../Sounds/PlayerSound')
-	
+
+	print("Spawning ball")
 	var current_ball = the_ball.instantiate()
 	ball_group = get_node('../Balls')
 	ball_group.add_child.call_deferred(current_ball)

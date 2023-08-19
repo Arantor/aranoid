@@ -74,31 +74,40 @@ func check_advance_level():
 		if brick.hits >= 1:
 			left += 1
 
-	# If no bricks left, time for next level!
-	if left == 0:
-		# Remove any other bricks.
-		for brick in current_bricks:
-			brick.queue_free()
-		# Remove any balls.
-		var ball_container = get_tree().get_current_scene().get_node("PlayerItems/Balls")
-		var balls = ball_container.get_children()
-		for ball in balls:
-			ball.free()
+	# If no bricks left, time for next level! If not, not yet...
+	print("Bricks left: " + str(left))
+	var child_count = get_tree().get_current_scene().get_node("PlayerItems/Balls").get_child_count()
+	print("Balls in play: " + str(child_count))
+	if left > 0:
+		return false
 
-		# And any powerups on screen.
-		var powerups = get_tree().get_current_scene().get_node("Powerups").get_children()
-		for powerup in powerups:
-			powerup.free()
+	# Remove any other bricks.
+	for brick in current_bricks:
+		print("Freeing: " + str(brick))
+		brick.queue_free()
+	# Remove any balls.
+	var ball_container = get_tree().get_current_scene().get_node("PlayerItems/Balls")
+	var balls = ball_container.get_children()
+	for ball in balls:
+		print("Freeing: " + str(ball))
+		ball.queue_free()
 
-		var powerupeffects = get_tree().get_current_scene().get_node("PowerupEffects").get_children()
-		for powerup in powerupeffects:
-			powerup.free()
+	# And any powerups on screen.
+	var powerups = get_tree().get_current_scene().get_node("Powerups").get_children()
+	for powerup in powerups:
+		print("Freeing: " + str(powerup))
+		powerup.queue_free()
 
-		# And nuke the player entity.
-		get_tree().get_current_scene().get_node("PlayerItems/Player").free()
+	var powerupeffects = get_tree().get_current_scene().get_node("PowerupEffects").get_children()
+	for powerup in powerupeffects:
+		if powerup.has_method("shutdown"):
+			print("Shutting down: " + str(powerup))
+			powerup.shutdown()
 
-		# Next level, and spawn the player into it!
-		CurrentLevel += 1
-		var player = preload("res://Entities/Player.tscn")
-		var the_player = player.instantiate()
-		get_tree().get_current_scene().get_node("PlayerItems").add_child(the_player)
+	# And reset the player entity.
+	print("Resetting player")
+	CurrentLevel += 1
+	get_tree().get_current_scene().get_node("PlayerItems/Player").reset_player()
+
+	# Lastly, make sure we don't allow for spawning a powerup off the last brick!
+	return true
