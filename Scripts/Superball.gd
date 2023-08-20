@@ -10,7 +10,7 @@ func _ready():
 	powerbar = powerbar_node.instantiate()
 	var powerupeffects = get_node('../../PowerupEffects')
 	powerupeffects.add_child(powerbar)
-	powerbar.show(Vector2(267, 71), 1.0)
+	powerbar.show(Vector2(267, 2), 1.0)
 	lifetimerdefault = $LifeTimer.wait_time
 
 	if $LifeTimer.is_stopped():
