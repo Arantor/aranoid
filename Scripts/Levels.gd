@@ -110,3 +110,8 @@ func advance_level():
 	print("Resetting player")
 	CurrentLevel += 1
 	get_tree().get_current_scene().get_node("PlayerItems/Player").reset_player()
+
+func lose_life():
+	CurrentLives -= 1
+	if CurrentLives < 1:
+		pass # @todo game over

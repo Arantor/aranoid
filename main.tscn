@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctd7fvwoat1mi"]
+[gd_scene load_steps=17 format=3 uid="uid://ctd7fvwoat1mi"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4js7"]
+[ext_resource type="Script" path="res://Scripts/Floor.gd" id="3_cq8i4"]
 [ext_resource type="PackedScene" uid="uid://biske8rxjsnw1" path="res://Entities/Player.tscn" id="3_k45l6"]
 [ext_resource type="Texture2D" uid="uid://c554a2k4uiyu" path="res://Sprites/score-digit.png" id="4_1wg1c"]
 [ext_resource type="AudioStream" uid="uid://pcdjatobtke0" path="res://Sounds/player_bounce.mp3" id="4_a5yub"]
@@ -18,6 +19,9 @@ size = Vector2(12, 177)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jhoc"]
 size = Vector2(226, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a157"]
+size = Vector2(252, 20)
 
 [node name="Level" type="Node2D"]
 
@@ -53,6 +57,14 @@ shape = SubResource("RectangleShape2D_ehwct")
 z_index = 2
 position = Vector2(125, -6)
 shape = SubResource("RectangleShape2D_5jhoc")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 2
+script = ExtResource("3_cq8i4")
+
+[node name="Floor" type="CollisionShape2D" parent="Floor"]
+position = Vector2(119, 190)
+shape = SubResource("RectangleShape2D_5a157")
 
 [node name="PlayerItems" type="Node" parent="."]
 
