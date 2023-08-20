@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://u6u1qc8voic"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4xba"]
-[ext_resource type="Script" path="res://Scripts/HowToPlay4.gd" id="1_pu75m"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay/HowToPlay4.gd" id="1_pu75m"]
 [ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="2_43hi2"]
 [ext_resource type="Texture2D" uid="uid://be0yta44wqgoe" path="res://Sprites/powerup-multiball.png" id="3_p8phq"]
 [ext_resource type="Texture2D" uid="uid://c7o40q05f0cg1" path="res://Sprites/powerup-multiball-shadow.png" id="4_jlrk6"]

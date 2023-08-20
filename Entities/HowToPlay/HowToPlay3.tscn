@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cv128on788fpu"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_5qejw"]
-[ext_resource type="Script" path="res://Scripts/HowToPlay3.gd" id="1_amb3q"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay/HowToPlay3.gd" id="1_amb3q"]
 [ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="2_ea2v1"]
 [ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="3_g61jw"]
 [ext_resource type="Texture2D" uid="uid://dib10dc4bx5ki" path="res://Sprites/powerup-shield.png" id="4_ch8k7"]

@@ -35,7 +35,7 @@ func _input(event):
 
 		var pos = event.position
 		if (pos.x >= 250 && pos.y >= 114) && (pos.x <= 310 && pos.y <= 136):
-			get_tree().change_scene_to_file("res://Entities/HowToPlay1.tscn")
+			get_tree().change_scene_to_file("res://Entities/HowToPlay/HowToPlay3.tscn")
 
 		if (pos.x >= 250 && pos.y >= 156) && (pos.x <= 310 && pos.y <= 176):
-			get_tree().change_scene_to_file("res://Entities/HowToPlay3.tscn")
+			pass #get_tree().change_scene_to_file("res://Entities/HowToPlay3.tscn")

@@ -42,7 +42,7 @@ func _input(event):
 			get_tree().change_scene_to_file("res://main.tscn")
 			
 		if pos.y >= 78 && pos.y <= 97:
-			get_tree().change_scene_to_file("res://Entities/HowToPlay1.tscn")
+			get_tree().change_scene_to_file("res://Entities/HowToPlay/HowToPlay1.tscn")
 
 		if pos.y >= 155 && pos.y <= 174:
 			get_tree().quit()

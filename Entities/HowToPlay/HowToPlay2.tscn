@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://b5fgp5spy8a2k"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_ajnox"]
-[ext_resource type="Script" path="res://Scripts/HowToPlay2.gd" id="1_hc7qw"]
-[ext_resource type="PackedScene" uid="uid://jhttbnk5ug1m" path="res://Entities/BrickBlue.tscn" id="2_cx636"]
-[ext_resource type="PackedScene" uid="uid://ckggcaamxkk3t" path="res://Entities/BrickSilver.tscn" id="3_88h5h"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay/HowToPlay2.gd" id="1_hc7qw"]
+[ext_resource type="PackedScene" uid="uid://jhttbnk5ug1m" path="res://Entities/Bricks/BrickBlue.tscn" id="2_cx636"]
+[ext_resource type="PackedScene" uid="uid://ckggcaamxkk3t" path="res://Entities/Bricks/BrickSilver.tscn" id="3_88h5h"]
 [ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="3_jvbr6"]
 [ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="4_n8ebu"]
-[ext_resource type="PackedScene" uid="uid://b4v24ehhh645k" path="res://Entities/BrickGold.tscn" id="4_wpqlx"]
+[ext_resource type="PackedScene" uid="uid://b4v24ehhh645k" path="res://Entities/Bricks/BrickGold.tscn" id="4_wpqlx"]
 [ext_resource type="Texture2D" uid="uid://68uslysbtfry" path="res://Sprites/menu-sidebar-overlay.png" id="5_nkr43"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a8xn5"]

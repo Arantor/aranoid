@@ -16,9 +16,9 @@ func _process(_delta):
 	var pos = get_viewport().get_mouse_position()
 	
 	if (pos.x >= 250 && pos.y >= 114) && (pos.x <= 310 && pos.y <= 136):
-		$Sidebar/Menu.label_settings.set_font(litfont)
+		$Sidebar/Prev.label_settings.set_font(litfont)
 	else:
-		$Sidebar/Menu.label_settings.set_font(unlitfont)
+		$Sidebar/Prev.label_settings.set_font(unlitfont)
 
 	if (pos.x >= 250 && pos.y >= 156) && (pos.x <= 310 && pos.y <= 176):
 		$Sidebar/Next.label_settings.set_font(litfont)
@@ -35,7 +35,7 @@ func _input(event):
 
 		var pos = event.position
 		if (pos.x >= 250 && pos.y >= 114) && (pos.x <= 310 && pos.y <= 136):
-			get_tree().change_scene_to_file("res://Entities/MainMenu.tscn")
+			get_tree().change_scene_to_file("res://Entities/HowToPlay/HowToPlay2.tscn")
 
 		if (pos.x >= 250 && pos.y >= 156) && (pos.x <= 310 && pos.y <= 176):
-			get_tree().change_scene_to_file("res://Entities/HowToPlay2.tscn")
+			get_tree().change_scene_to_file("res://Entities/HowToPlay/HowToPlay4.tscn")

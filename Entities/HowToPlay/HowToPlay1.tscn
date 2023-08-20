@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dmc5x13dofdss"]
 
-[ext_resource type="Script" path="res://Scripts/HowToPlay1.gd" id="1_f7kyg"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay/HowToPlay1.gd" id="1_f7kyg"]
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_kwmov"]
-[ext_resource type="PackedScene" uid="uid://jhttbnk5ug1m" path="res://Entities/BrickBlue.tscn" id="2_467yr"]
+[ext_resource type="PackedScene" uid="uid://jhttbnk5ug1m" path="res://Entities/Bricks/BrickBlue.tscn" id="2_467yr"]
 [ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="3_q8xrf"]
 [ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="4_noj8d"]
 [ext_resource type="Texture2D" uid="uid://68uslysbtfry" path="res://Sprites/menu-sidebar-overlay.png" id="5_1iapf"]
