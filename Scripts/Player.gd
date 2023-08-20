@@ -17,7 +17,8 @@ func reset_player(reset_position = true):
 
 	print("Level population")
 	var levels_container = get_node('../../BricksContainer')
-	Levels.populate_level(levels_container)
+	if levels_container.get_child_count() == 0:
+		Levels.populate_level(levels_container)
 
 	print("Ball anim")
 	$Launch.visible = true
