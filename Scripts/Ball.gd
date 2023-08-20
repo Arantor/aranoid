@@ -57,9 +57,6 @@ func get_new_vector_from_velocity_angle(vel, angle):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if not player.is_active():
-			return
-
 		if ball_mode == BALL_MODE.CAUGHT:
 			velocity = stored_velocity
 			ball_mode = BALL_MODE.IN_MOTION
