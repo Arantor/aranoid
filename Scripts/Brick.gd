@@ -17,7 +17,7 @@ func _ready():
 func hit(ball):
 	# If the ball is a super ball, we're "handling the bounce" i.e. nothing.
 	if ball.super_ball:
-		Levels.CurrentScore += scores
+		Levels.score_points(scores)
 		scores = 0
 		print("Superball destroyed brick")
 		queue_free()
@@ -31,8 +31,7 @@ func hit(ball):
 	if destructible:
 		hits -= 1
 		if hits < 1:
-			print("Applying score")
-			Levels.CurrentScore += scores
+			Levels.score_points(scores)
 			scores = 0
 			print("Destroying brick")
 			queue_free()

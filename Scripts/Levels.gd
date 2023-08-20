@@ -1,5 +1,6 @@
 extends Node
 
+var NewLifeAt = 500
 var CurrentLevel = 0
 var CurrentScore = 0
 var CurrentLives = 3
@@ -125,6 +126,17 @@ func advance_level():
 	print("Resetting player")
 	CurrentLevel += 1
 	get_tree().get_current_scene().get_node("PlayerItems/Player").reset_player()
+
+func score_points(points):
+	print("Applying score")
+	var beforescore = CurrentScore
+	CurrentScore += points
+	if floor(CurrentScore / NewLifeAt) > floor(beforescore / NewLifeAt):
+		gain_life()
+
+func gain_life():
+	# @todo play sound
+	CurrentLives += 1
 
 func lose_life():
 	CurrentLives -= 1
