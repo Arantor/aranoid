@@ -11,5 +11,5 @@ func _on_body_entered(_body):
 		powerupeffects.get_node('Shield').get_node('LifeTimer').start()
 	else:
 		var newshield = shield.instantiate()
-		powerupeffects.add_child(newshield)
+		powerupeffects.add_child.call_deferred(newshield)
 	queue_free()
