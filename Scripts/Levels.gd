@@ -11,16 +11,16 @@ func begin():
 	CurrentLevel = 1
 	bricks = [
 		false,
-		preload("res://Entities/BrickGold.tscn"),
-		preload("res://Entities/BrickSilver.tscn"),
-		preload("res://Entities/BrickBrown.tscn"),
-		preload("res://Entities/BrickRed.tscn"),
-		preload("res://Entities/BrickOrange.tscn"),
-		preload("res://Entities/BrickYellow.tscn"),
-		preload("res://Entities/BrickGreen.tscn"),
-		preload("res://Entities/BrickMintGreen.tscn"),
-		preload("res://Entities/BrickLightBlue.tscn"),
-		preload("res://Entities/BrickBlue.tscn"),
+		preload("res://Entities/Bricks/BrickGold.tscn"),
+		preload("res://Entities/Bricks/BrickSilver.tscn"),
+		preload("res://Entities/Bricks/BrickBrown.tscn"),
+		preload("res://Entities/Bricks/BrickRed.tscn"),
+		preload("res://Entities/Bricks/BrickOrange.tscn"),
+		preload("res://Entities/Bricks/BrickYellow.tscn"),
+		preload("res://Entities/Bricks/BrickGreen.tscn"),
+		preload("res://Entities/Bricks/BrickMintGreen.tscn"),
+		preload("res://Entities/Bricks/BrickLightBlue.tscn"),
+		preload("res://Entities/Bricks/BrickBlue.tscn"),
 	]
 
 func populate_level(level):
