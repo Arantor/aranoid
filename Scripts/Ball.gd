@@ -87,6 +87,10 @@ func multi_split(count):
 	else:
 		print("Multi split called with unsupported number: " + str(count))
 
+func set_linear_velocity(vel):
+	var current_angle = get_angle_from_vector(velocity)
+	velocity = get_new_vector_from_velocity_angle(vel, current_angle)
+
 func set_superball():
 	super_ball = true
 	$Ball.visible = false
