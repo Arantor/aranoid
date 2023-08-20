@@ -54,6 +54,11 @@ func populate_level(level):
 
 
 func get_level(level):
+	var level_repeat = 2
+	level = level % level_repeat
+	if level == 0:
+		level = level_repeat
+
 	match level:
 		1:
 			return [
