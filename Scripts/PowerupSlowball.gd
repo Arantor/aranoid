@@ -10,6 +10,7 @@ func _physics_process(delta):
 		var vel = sqrt((60 * 60) + (60 * 60))
 		for ball in balls:
 			ball.set_linear_velocity(vel)
+			ball.timer = 0 # Reset the 'how long until speedup' timer
 		queue_free()
 	
 	if position.y > 200:
