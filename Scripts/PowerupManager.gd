@@ -44,3 +44,15 @@ func any_powerups_present():
 		return true
 
 	return false
+
+func destroy_all_powerups():
+	var powerups = get_tree().get_current_scene().get_node("Powerups").get_children()
+	for powerup in powerups:
+		print("Freeing: " + str(powerup))
+		powerup.queue_free()
+
+	var powerupeffects = get_tree().get_current_scene().get_node("PowerupEffects").get_children()
+	for powerup in powerupeffects:
+		if powerup.has_method("shutdown"):
+			print("Shutting down: " + str(powerup))
+			powerup.shutdown()

@@ -104,16 +104,7 @@ func advance_level():
 		ball.queue_free()
 
 	# And any powerups on screen.
-	var powerups = get_tree().get_current_scene().get_node("Powerups").get_children()
-	for powerup in powerups:
-		print("Freeing: " + str(powerup))
-		powerup.queue_free()
-
-	var powerupeffects = get_tree().get_current_scene().get_node("PowerupEffects").get_children()
-	for powerup in powerupeffects:
-		if powerup.has_method("shutdown"):
-			print("Shutting down: " + str(powerup))
-			powerup.shutdown()
+	PowerupManager.destroy_all_powerups()
 
 	# And reset the player entity.
 	print("Resetting player")
