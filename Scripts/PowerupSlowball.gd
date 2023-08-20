@@ -1,6 +1,6 @@
 extends Powerup
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	var ball_container = get_tree().get_current_scene().get_node("PlayerItems/Balls")
 	var balls = ball_container.get_children()
 	var vel = sqrt((60 * 60) + (60 * 60))

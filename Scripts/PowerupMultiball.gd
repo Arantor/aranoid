@@ -1,6 +1,6 @@
 extends Powerup
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	var balls_container = get_node('../../PlayerItems/Balls')
 	var balls = balls_container.get_children()
 	for ball in balls:
