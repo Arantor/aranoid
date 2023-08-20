@@ -2,6 +2,7 @@ extends Node
 
 var CurrentLevel = 0
 var CurrentScore = 0
+var CurrentLives = 3
 var bricks = []
 
 # Called when the node enters the scene tree for the first time.

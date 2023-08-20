@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctd7fvwoat1mi"]
+[gd_scene load_steps=15 format=3 uid="uid://ctd7fvwoat1mi"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4js7"]
 [ext_resource type="PackedScene" uid="uid://biske8rxjsnw1" path="res://Entities/Player.tscn" id="3_k45l6"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://kf3vepo1kkdb" path="res://Sounds/brick_gold_collide.mp3" id="5_smn3j"]
 [ext_resource type="Texture2D" uid="uid://v63tedvdoml2" path="res://Sprites/board-overlay.png" id="6_7w8pq"]
 [ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="6_kq815"]
+[ext_resource type="Script" path="res://Scripts/LivesCounter.gd" id="7_4bgb1"]
 [ext_resource type="Script" path="res://Scripts/BricksRemaining.gd" id="7_rgihb"]
 [ext_resource type="AudioStream" uid="uid://ct10vtfxsg3sw" path="res://Sounds/multiball.mp3" id="9_d7abw"]
 
@@ -126,6 +127,31 @@ region_rect = Rect2(0, 180, 13, 18)
 [node name="Digit3" type="Sprite2D" parent="PlayerItems/LevelCounter"]
 z_index = 5
 position = Vector2(305, 144)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="LivesCounter" type="Node" parent="PlayerItems"]
+script = ExtResource("7_4bgb1")
+
+[node name="x" type="Label" parent="PlayerItems/LivesCounter"]
+offset_left = 269.0
+offset_top = 64.0
+offset_right = 283.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("6_kq815")
+text = "x"
+
+[node name="Digit1" type="Sprite2D" parent="PlayerItems/LivesCounter"]
+z_index = 5
+position = Vector2(289, 81)
+texture = ExtResource("4_1wg1c")
+region_enabled = true
+region_rect = Rect2(0, 180, 13, 18)
+
+[node name="Digit2" type="Sprite2D" parent="PlayerItems/LivesCounter"]
+z_index = 5
+position = Vector2(302, 81)
 texture = ExtResource("4_1wg1c")
 region_enabled = true
 region_rect = Rect2(0, 180, 13, 18)
