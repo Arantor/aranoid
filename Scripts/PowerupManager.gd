@@ -5,6 +5,7 @@ var powerups
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	powerups = {
+		'extralife': preload("res://Entities/Powerups/PowerupExtraLife.tscn"),
 		'shield': preload("res://Entities/Powerups/PowerupShield.tscn"),
 		'slowball': preload("res://Entities/Powerups/PowerupSlowball.tscn"),
 		'superball': preload("res://Entities/Powerups/PowerupSuperball.tscn"),
@@ -22,14 +23,16 @@ func check_spawn(position):
 	var newpowerup = ''
 	var powerup_height = 17
 
-	if powerup > 20 and powerup <= 40:
+	if powerup > 20 and powerup <= 60:
+		newpowerup = 'extralife'
+	if powerup > 60 and powerup <= 70:
 		newpowerup = 'slowball'
 		powerup_height = 21
-	elif powerup > 40 and powerup <= 60:
+	elif powerup > 70 and powerup <= 80:
 		newpowerup = 'superball'
-	elif powerup > 60 and powerup <= 80:
+	elif powerup > 80 and powerup <= 90:
 		newpowerup = 'multiball'
-	elif powerup > 80:
+	elif powerup > 90:
 		newpowerup = 'shield'
 
 	if newpowerup:
