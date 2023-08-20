@@ -8,7 +8,7 @@
 radius = 7.0
 height = 16.0
 
-[node name="PowerupShield" type="CharacterBody2D"]
+[node name="PowerupShield" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_atnyq")
 
@@ -24,3 +24,5 @@ shape = SubResource("CapsuleShape2D_42fex")
 z_index = 2
 position = Vector2(4, 4)
 texture = ExtResource("3_lam2j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

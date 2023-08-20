@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://76m6fr5tduit" path="res://Sprites/powerup-slowball.png" id="2_0yu6i"]
 [ext_resource type="Texture2D" uid="uid://bouk7k8bm7lpm" path="res://Sprites/powerup-slowball-shadow.png" id="3_dvvae"]
 
-[node name="PowerupSlowball" type="CharacterBody2D"]
+[node name="PowerupSlowball" type="Area2D"]
 z_index = 3
 collision_layer = 16
 script = ExtResource("1_6q7o6")
@@ -19,3 +19,5 @@ polygon = PackedVector2Array(-5, -11, 5, -11, 4, -4, 2, 0, 4, 3, 5, 10, -5, 10, 
 z_index = 2
 position = Vector2(4, 4)
 texture = ExtResource("3_dvvae")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

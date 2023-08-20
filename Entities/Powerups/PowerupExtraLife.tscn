@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/PowerupExtraLife.gd" id="1_nh38v"]
 [ext_resource type="Texture2D" uid="uid://dfngp46vnqoh2" path="res://Sprites/powerup-extralife-shadow.png" id="2_fpxix"]
 
-[node name="PowerupExtraLife" type="CharacterBody2D"]
+[node name="PowerupExtraLife" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_nh38v")
 
@@ -19,3 +19,5 @@ polygon = PackedVector2Array(0, -8, 1, -7, 1, -4, 3, -2, 6, -2, 7, -1, 7, 0, 6, 
 z_index = 2
 position = Vector2(4, 4)
 texture = ExtResource("2_fpxix")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

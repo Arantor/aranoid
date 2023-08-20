@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dk5uci0ocukld" path="res://Sprites/powerup-superball.png" id="2_1qqbj"]
 [ext_resource type="Texture2D" uid="uid://by06h00e3g767" path="res://Sprites/powerup-superball-shadow.png" id="3_sbshw"]
 
-[node name="PowerupSuperball" type="CharacterBody2D"]
+[node name="PowerupSuperball" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_lxqtw")
 
@@ -19,3 +19,5 @@ polygon = PackedVector2Array(-1, -8, 0, -8, 3, -4, 3, 4, 0, 7, -1, 7, -4, 4, -4,
 z_index = 2
 position = Vector2(4, 4)
 texture = ExtResource("3_sbshw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

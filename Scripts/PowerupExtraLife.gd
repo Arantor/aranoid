@@ -1,10 +1,5 @@
-extends CharacterBody2D
+extends Powerup
 
-func _physics_process(delta):
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		Levels.gain_life()
-		queue_free()
-	
-	if position.y > 200:
-		queue_free()
+func _on_body_entered(body):
+	Levels.gain_life()
+	queue_free()

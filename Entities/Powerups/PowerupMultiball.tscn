@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://be0yta44wqgoe" path="res://Sprites/powerup-multiball.png" id="2_ai6pw"]
 [ext_resource type="Texture2D" uid="uid://c7o40q05f0cg1" path="res://Sprites/powerup-multiball-shadow.png" id="3_m4k15"]
 
-[node name="PowerupMultiball" type="CharacterBody2D"]
+[node name="PowerupMultiball" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_m3fe1")
 
@@ -19,3 +19,5 @@ polygon = PackedVector2Array(1, -9, 3, -7, 3, -5, 5, -4, 5, 1, 9, 3, 9, 6, 7, 8,
 z_index = 2
 position = Vector2(4, 4)
 texture = ExtResource("3_m4k15")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
