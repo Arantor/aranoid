@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ohfxe5fcqhla"]
 
-[ext_resource type="Script" path="res://Scripts/PowerupShield.gd" id="1_01y16"]
-[ext_resource type="Texture2D" uid="uid://dib10dc4bx5ki" path="res://Sprites/powerup-shield.png" id="1_x2pvj"]
-[ext_resource type="Texture2D" uid="uid://b4qqjawyj1xo2" path="res://Sprites/powerup-shield-shadow.png" id="3_ugyty"]
+[ext_resource type="Script" path="res://Scripts/PowerupShield.gd" id="1_atnyq"]
+[ext_resource type="Texture2D" uid="uid://dib10dc4bx5ki" path="res://Sprites/powerup-shield.png" id="2_nwmhj"]
+[ext_resource type="Texture2D" uid="uid://b4qqjawyj1xo2" path="res://Sprites/powerup-shield-shadow.png" id="3_lam2j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42fex"]
 radius = 7.0
@@ -10,11 +10,11 @@ height = 16.0
 
 [node name="PowerupShield" type="CharacterBody2D"]
 collision_layer = 16
-script = ExtResource("1_01y16")
+script = ExtResource("1_atnyq")
 
 [node name="Powerup-shield" type="Sprite2D" parent="."]
 z_index = 3
-texture = ExtResource("1_x2pvj")
+texture = ExtResource("2_nwmhj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -23,4 +23,4 @@ shape = SubResource("CapsuleShape2D_42fex")
 [node name="Powerup-shield-shadow" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(4, 4)
-texture = ExtResource("3_ugyty")
+texture = ExtResource("3_lam2j")

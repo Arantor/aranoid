@@ -10,10 +10,10 @@ var powerups
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	powerups = {
-		'shield': preload("res://Entities/PowerupShield.tscn"),
-		'slowball': preload("res://Entities/PowerupSlowball.tscn"),
-		'superball': preload("res://Entities/PowerupSuperball.tscn"),
-		'multiball': preload("res://Entities/PowerupMultiball.tscn")
+		'shield': preload("res://Entities/Powerups/PowerupShield.tscn"),
+		'slowball': preload("res://Entities/Powerups/PowerupSlowball.tscn"),
+		'superball': preload("res://Entities/Powerups/PowerupSuperball.tscn"),
+		'multiball': preload("res://Entities/Powerups/PowerupMultiball.tscn")
 	}
 	if metallic:
 		sound = get_node_or_null('../../Sounds/BrickMetalSound')
