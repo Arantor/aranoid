@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-var shield
+var superball
 
 func _ready():
-	shield = preload("res://Entities/Superball.tscn")
+	superball = preload("res://Entities/Superball.tscn")
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
@@ -12,7 +12,7 @@ func _physics_process(delta):
 		if powerupeffects.get_node_or_null('Superball'):
 			powerupeffects.get_node('Superball').get_node('LifeTimer').start()
 		else:
-			var newsuperball = shield.instantiate()
+			var newsuperball = superball.instantiate()
 			powerupeffects.add_child(newsuperball)
 		queue_free()
 	
