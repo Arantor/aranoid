@@ -7,6 +7,7 @@ func _ready():
 	powerups = {
 		'extralife': preload("res://Entities/Powerups/PowerupExtraLife.tscn"),
 		'shield': preload("res://Entities/Powerups/PowerupShield.tscn"),
+		'skiplevel': preload("res://Entities/Powerups/PowerupSkipLevel.tscn"),
 		'slowball': preload("res://Entities/Powerups/PowerupSlowball.tscn"),
 		'superball': preload("res://Entities/Powerups/PowerupSuperball.tscn"),
 		'multiball': preload("res://Entities/Powerups/PowerupMultiball.tscn")
@@ -23,9 +24,11 @@ func check_spawn(position):
 	var newpowerup = ''
 	var powerup_height = 17
 
-	if powerup > 20 and powerup <= 60:
+	if powerup > 20 and powerup <= 50:
+		newpowerup = 'skiplevel'
+	elif powerup > 50 and powerup <= 60:
 		newpowerup = 'extralife'
-	if powerup > 60 and powerup <= 70:
+	elif powerup > 60 and powerup <= 70:
 		newpowerup = 'slowball'
 		powerup_height = 21
 	elif powerup > 70 and powerup <= 80:
