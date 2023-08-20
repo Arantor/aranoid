@@ -49,8 +49,8 @@ func any_powerups_present():
 	return false
 
 func destroy_all_powerups():
-	var powerups = get_tree().get_current_scene().get_node("Powerups").get_children()
-	for powerup in powerups:
+	var instanced_powerups = get_tree().get_current_scene().get_node("Powerups").get_children()
+	for powerup in instanced_powerups:
 		print("Freeing: " + str(powerup))
 		powerup.queue_free()
 
