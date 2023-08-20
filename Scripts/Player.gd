@@ -10,6 +10,9 @@ func _ready():
 	reset_player()
 
 func reset_player(reset_position = true):
+	if Levels.GameOver:
+		return
+
 	print("Player init")
 	if reset_position:
 		position.x = 124
@@ -17,7 +20,7 @@ func reset_player(reset_position = true):
 
 	print("Level population")
 	var levels_container = get_node('../../BricksContainer')
-	if levels_container.get_child_count() == 0:
+	if Levels.get_remaining_brick_count() == 0:
 		Levels.populate_level(levels_container)
 
 	print("Ball anim")
@@ -40,6 +43,9 @@ func _process(_delta):
 	pass
 
 func _input(event):
+	if Levels.GameOver:
+		return
+
 	if event is InputEventMouseMotion:
 		position.x += event.relative.x
 	position.x = clamp(position.x, 33, 216)

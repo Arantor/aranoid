@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctd7fvwoat1mi"]
+[gd_scene load_steps=20 format=3 uid="uid://ctd7fvwoat1mi"]
 
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4js7"]
 [ext_resource type="Script" path="res://Scripts/Floor.gd" id="3_cq8i4"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" path="res://Scripts/LivesCounter.gd" id="7_4bgb1"]
 [ext_resource type="Script" path="res://Scripts/BricksRemaining.gd" id="7_rgihb"]
 [ext_resource type="AudioStream" uid="uid://ct10vtfxsg3sw" path="res://Sounds/multiball.mp3" id="9_d7abw"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="10_ky54i"]
+[ext_resource type="FontFile" uid="uid://c0jh8oaysm33t" path="res://Fonts/lit-large.fnt" id="10_r88b8"]
+[ext_resource type="FontFile" uid="uid://bk6hofltd6osx" path="res://Fonts/unlit-large.fnt" id="11_q5ex4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehwct"]
 size = Vector2(12, 177)
@@ -192,6 +195,32 @@ texture = ExtResource("4_1wg1c")
 region_enabled = true
 region_rect = Rect2(0, 180, 13, 18)
 
+[node name="GameOver" type="Node" parent="PlayerItems"]
+script = ExtResource("10_ky54i")
+
+[node name="GameOver" type="Label" parent="PlayerItems/GameOver"]
+visible = false
+z_index = 5
+offset_left = 67.0
+offset_top = 68.0
+offset_right = 180.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("10_r88b8")
+text = "GAME OVER"
+
+[node name="GameOver2" type="Label" parent="PlayerItems/GameOver"]
+visible = false
+z_index = 4
+offset_left = 69.0
+offset_top = 70.0
+offset_right = 182.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("11_q5ex4")
+text = "GAME OVER"
+
+[node name="Timer" type="Timer" parent="PlayerItems/GameOver"]
+wait_time = 5.0
+
 [node name="Sounds" type="Node" parent="."]
 
 [node name="PlayerSound" type="AudioStreamPlayer" parent="Sounds"]
@@ -205,3 +234,5 @@ stream = ExtResource("5_smn3j")
 
 [node name="MultiballSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("9_d7abw")
+
+[connection signal="timeout" from="PlayerItems/GameOver/Timer" to="PlayerItems/GameOver" method="_on_timer_timeout"]

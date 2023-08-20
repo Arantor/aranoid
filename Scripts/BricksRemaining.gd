@@ -2,14 +2,7 @@ extends Node
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var bricks_container = get_tree().get_current_scene().get_node("BricksContainer")
-	var current_bricks = bricks_container.get_children()
-	var left = 0;
-	for brick in current_bricks:
-		if not brick.destructible:
-			continue
-		if brick.hits >= 1:
-			left += 1
+	var left = Levels.get_remaining_brick_count()
 
 	var score = str(left).lpad(3)
 	for digit in range(0,3):

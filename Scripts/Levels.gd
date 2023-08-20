@@ -3,13 +3,11 @@ extends Node
 var CurrentLevel = 0
 var CurrentScore = 0
 var CurrentLives = 3
+var GameOver = false
 var bricks = []
 
 # Called when the node enters the scene tree for the first time.
-func begin():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	CurrentLevel = 1
+func _ready():
 	bricks = [
 		false,
 		preload("res://Entities/Bricks/BrickGold.tscn"),
@@ -23,6 +21,14 @@ func begin():
 		preload("res://Entities/Bricks/BrickLightBlue.tscn"),
 		preload("res://Entities/Bricks/BrickBlue.tscn"),
 	]
+
+func begin():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	CurrentLevel = 1
+	CurrentScore = 0
+	CurrentLives = 3
+	GameOver = false
 
 func populate_level(level):
 	var level_to_build = get_level(CurrentLevel)
@@ -65,20 +71,29 @@ func get_level(level):
 
 	return []
 
-func check_advance_level():
+func get_remaining_brick_count():
 	var bricks_container = get_tree().get_current_scene().get_node("BricksContainer")
 	var current_bricks = bricks_container.get_children()
-	var left = 0;
+	var left = 0
+	var destructible = 0
+	var queued = 0
 
 	for brick in current_bricks:
+		if brick.is_queued_for_deletion():
+			queued += 1
+			continue
 		if not brick.destructible:
+			destructible += 1
 			continue
 		if brick.hits >= 1:
 			left += 1
 
 	# If no bricks left, time for next level! If not, not yet...
-	print("Bricks left: " + str(left))
+	#print("Bricks left: " + str(left) + ", nondestruct: " + str(destructible) + ", queued: " + str(queued))
+	return left
 
+func check_advance_level():
+	var left = get_remaining_brick_count()
 	if left > 0:
 		return false # We're not advancing the level
 
@@ -114,4 +129,5 @@ func advance_level():
 func lose_life():
 	CurrentLives -= 1
 	if CurrentLives < 1:
-		pass # @todo game over
+		var gameover = get_tree().get_current_scene().get_node("PlayerItems/GameOver")
+		gameover.do_game_over()
