@@ -1,6 +1,6 @@
 extends Node
 
-var NewLifeAt = 500
+var NewLifeAt = 500.0
 var CurrentLevel = 0
 var CurrentScore = 0
 var CurrentLives = 3
@@ -136,7 +136,7 @@ func score_points(points):
 	print("Applying score")
 	var beforescore = CurrentScore
 	CurrentScore += points
-	if floor(CurrentScore / NewLifeAt) > floor(beforescore / NewLifeAt):
+	if floorf(CurrentScore / NewLifeAt) > floorf(beforescore / NewLifeAt):
 		gain_life()
 
 func gain_life():
