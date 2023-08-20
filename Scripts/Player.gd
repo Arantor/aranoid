@@ -9,10 +9,11 @@ func _ready():
 	collide_sound = get_node('../../Sounds/PlayerSound')
 	reset_player()
 
-func reset_player():
+func reset_player(reset_position = true):
 	print("Player init")
-	position.x = 124
-	position.y = 155
+	if reset_position:
+		position.x = 124
+		position.y = 155
 
 	print("Level population")
 	var levels_container = get_node('../../BricksContainer')
