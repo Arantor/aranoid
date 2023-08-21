@@ -15,6 +15,10 @@ func _ready():
 		sound = get_node_or_null('../../Sounds/BrickSound')
 
 func hit(ball):
+	# If the ball is not technically in motion, it can't collide.
+	if ball.is_queued_for_deletion():
+		return false
+
 	# If the ball is a super ball, we're "handling the bounce" i.e. nothing.
 	if ball.super_ball:
 		Levels.score_points(scores)
