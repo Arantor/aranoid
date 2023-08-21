@@ -71,7 +71,15 @@ func clone():
 	return ball_clone
 
 func multi_split(count):
-	if count == 3:
+	if count == 2:
+		var deviance = 15
+		var ball2 = clone()
+		var current_vel = get_velocity_from_vector(velocity)
+		var current_angle = get_angle_from_vector(velocity)
+		velocity = get_new_vector_from_velocity_angle(current_vel, current_angle - (deviance / 2.0))
+		ball2.velocity = get_new_vector_from_velocity_angle(current_vel, current_angle + (deviance / 2.0))
+		get_parent().add_child(ball2)
+	elif count == 3:
 		var deviance = 15
 		var ball1 = clone()
 		var ball2 = clone()
