@@ -6,6 +6,7 @@ var CurrentScore = 0
 var CurrentLives = 3
 var GameOver = false
 var bricks = []
+var level_scenes
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +23,13 @@ func _ready():
 		preload("res://Entities/Bricks/BrickLightBlue.tscn"),
 		preload("res://Entities/Bricks/BrickBlue.tscn"),
 	]
+	level_scenes = {
+		'earth': preload("res://Entities/Levels/LevelEarth.tscn"),
+		'offbyone': preload("res://Entities/Levels/LevelOffByOne.tscn"),
+		'spine': preload("res://Entities/Levels/LevelSpine.tscn"),
+		'treasurechest': preload("res://Entities/Levels/LevelTreasureChest.tscn"),
+		'weave': preload("res://Entities/Levels/LevelWeave.tscn"),
+	}
 
 func begin():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -33,13 +41,9 @@ func begin():
 
 func populate_level(level):
 	var level_to_build = get_level(CurrentLevel)
-	for row in range(0, level_to_build.size()):
-		for column in range(0, level_to_build[row].size()):
-			if (level_to_build[row][column]):
-				var brick = bricks[level_to_build[row][column]].instantiate()
-				level.add_child(brick)
-				brick.position.x = column * 7.5 + 13
-				brick.position.y = row * 8 + 5
+	for brick in level_to_build.get_children():
+		level_to_build.remove_child(brick)
+		level.add_child(brick)
 
 	var levelcounter = level.get_parent().get_node("PlayerItems/LevelCounter")
 	var score = str(CurrentLevel).lpad(3)
@@ -52,52 +56,45 @@ func populate_level(level):
 			digit_sprite.set_region_rect(Rect2(0, 18 * digit_value.to_int(), 13, 18))
 			pass
 
+func build_level_from_array(level_to_build):
+	var level = Node2D.new()
+	for row in range(0, level_to_build.size()):
+		for column in range(0, level_to_build[row].size()):
+			if (level_to_build[row][column]):
+				var brick = bricks[level_to_build[row][column]].instantiate()
+				level.add_child(brick)
+				brick.position.x = column * 7.5 + 13
+				brick.position.y = row * 8 + 5
+
+	return level
+
+func build_level_from_packed_scene(level_to_build):
+	var level = level_scenes[level_to_build].instantiate()
+	for brick in level.get_children():
+		brick.position += Vector2(13, 5)
+
+	return level
 
 func get_level(level):
-	var level_repeat = 3
-	level = level % level_repeat
-	if level == 0:
-		level = level_repeat
+	
+	var levels = [
+		'spine',
+		'earth',
+		'treasurechest',
+		'offbyone',
+		'weave',
+		false
+	]
+	level = (level - 1) % levels.size()
+	
+	if levels[level]:
+		return build_level_from_packed_scene(levels[level])
 
-	match level:
-		1:
-			return [
-				[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-				[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-				[ 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0],
-				[ 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0],
-				[ 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 0],
-				[ 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0],
-				[ 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0],
-				[ 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 6, 0, 6, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0],
-				[ 0, 0, 0, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 0],
-				[ 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 7, 0, 7, 0, 0, 0, 7, 0, 7, 0, 0, 0, 0, 0, 6, 0, 6, 0, 0],
-				[ 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0],
-				[ 0, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 0],
-			]
-		2:
-			return [
-				[ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-				[ 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2],
-				[ 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9],
-				[ 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3],
-				[ 5, 0, 6, 0, 7, 0, 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4],
-				[ 6, 0, 7, 0, 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4, 0, 5],
-				[ 7, 0, 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4, 0, 5, 0, 6],
-				[ 8, 0, 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7],
-				[ 9, 0,10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8],
-				[10, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9],
-				[ 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0,10],
-				[ 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0,10, 0, 3],
-			]
-		3:
-			return [
-				[ 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3],
-				[ 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4],
-				[ 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5],
-			]
-
-	return []
+	return build_level_from_array([
+		[ 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3],
+		[ 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4],
+		[ 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5],
+	])
 
 func get_remaining_brick_count():
 	var bricks_container = get_tree().get_current_scene().get_node("BricksContainer")
