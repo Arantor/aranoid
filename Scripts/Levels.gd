@@ -56,26 +56,7 @@ func populate_level(level):
 			digit_sprite.set_region_rect(Rect2(0, 18 * digit_value.to_int(), 13, 18))
 			pass
 
-func build_level_from_array(level_to_build):
-	var level = Node2D.new()
-	for row in range(0, level_to_build.size()):
-		for column in range(0, level_to_build[row].size()):
-			if (level_to_build[row][column]):
-				var brick = bricks[level_to_build[row][column]].instantiate()
-				level.add_child(brick)
-				brick.position.x = column * 7.5 + 13
-				brick.position.y = row * 8 + 5
-
-	return level
-
-func build_level_from_packed_scene(level_to_build):
-	var level = level_scenes[level_to_build].instantiate()
-	for brick in level.get_children():
-		brick.position += Vector2(13, 5)
-
-	return level
-
-func get_level(level):
+func get_level(level_no):
 	
 	var levels = [
 		'spine',
@@ -83,18 +64,15 @@ func get_level(level):
 		'treasurechest',
 		'offbyone',
 		'weave',
-		false
 	]
-	level = (level - 1) % levels.size()
+	level_no = (level_no - 1) % levels.size()
 	
-	if levels[level]:
-		return build_level_from_packed_scene(levels[level])
+	if levels[level_no]:
+		var level = level_scenes[levels[level_no]].instantiate()
+		for brick in level.get_children():
+			brick.position += Vector2(13, 5)
 
-	return build_level_from_array([
-		[ 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 0, 3],
-		[ 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4],
-		[ 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5],
-	])
+		return level
 
 func get_remaining_brick_count():
 	var bricks_container = get_tree().get_current_scene().get_node("BricksContainer")
