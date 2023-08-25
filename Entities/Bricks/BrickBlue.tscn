@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://jhttbnk5ug1m"]
 
 [ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_hl8qg"]
-[ext_resource type="Texture2D" uid="uid://bpq5ppog3xiom" path="res://Sprites/brick-blue.png" id="2_in6sc"]
-[ext_resource type="Texture2D" uid="uid://dtd0unetnsl4t" path="res://Sprites/brick-shadow.png" id="3_lxd56"]
+[ext_resource type="Texture2D" uid="uid://bpq5ppog3xiom" path="res://Sprites/Bricks/brick-blue.png" id="2_in6sc"]
+[ext_resource type="Texture2D" uid="uid://dtd0unetnsl4t" path="res://Sprites/Bricks/brick-shadow.png" id="3_lxd56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
 size = Vector2(14, 7)

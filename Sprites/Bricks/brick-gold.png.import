@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtd0unetnsl4t"
-path="res://.godot/imported/brick-shadow.png-e7c740453871a90a03302dc62f48278d.ctex"
+uid="uid://c1ebv3w8vc5hy"
+path="res://.godot/imported/brick-gold.png-d895eea7be2708925cf0f72d698b8fa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/brick-shadow.png"
-dest_files=["res://.godot/imported/brick-shadow.png-e7c740453871a90a03302dc62f48278d.ctex"]
+source_file="res://Sprites/Bricks/brick-gold.png"
+dest_files=["res://.godot/imported/brick-gold.png-d895eea7be2708925cf0f72d698b8fa2.ctex"]
 
 [params]
 
