@@ -72,6 +72,21 @@ text = "HOW TO PLAY"
 flat = true
 alignment = 0
 
+[node name="OptionsButton" type="Button" parent="Mainmenu"]
+offset_left = -60.0
+offset_top = 11.0
+offset_right = 26.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("5_s67kd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_24gvi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uahso")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tgwnp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ivo40")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ietkq")
+text = "OPTIONS"
+flat = true
+alignment = 0
+
 [node name="ExitButton" type="Button" parent="Mainmenu"]
 offset_left = -60.0
 offset_top = 61.0
@@ -93,6 +108,9 @@ alignment = 0
 [connection signal="mouse_entered" from="Mainmenu/HowToPlayButton" to="." method="_on_how_to_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="Mainmenu/HowToPlayButton" to="." method="_on_how_to_play_button_mouse_exited"]
 [connection signal="pressed" from="Mainmenu/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="mouse_entered" from="Mainmenu/OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="mouse_exited" from="Mainmenu/OptionsButton" to="." method="_on_options_button_mouse_exited"]
+[connection signal="pressed" from="Mainmenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="mouse_entered" from="Mainmenu/ExitButton" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="mouse_exited" from="Mainmenu/ExitButton" to="." method="_on_exit_button_mouse_exited"]
 [connection signal="pressed" from="Mainmenu/ExitButton" to="." method="_on_exit_button_pressed"]

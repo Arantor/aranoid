@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://bot080mykh0uv"]
+
+[ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_0hbja"]
+[ext_resource type="Texture2D" uid="uid://b3eamepsctlm1" path="res://Sprites/Options-Menu.png" id="1_bnr68"]
+[ext_resource type="Texture2D" uid="uid://b13lb6ofiqrrb" path="res://Sprites/Main-Menu-slider-fg.png" id="2_01ooh"]
+[ext_resource type="FontFile" uid="uid://c0jh8oaysm33t" path="res://Fonts/lit-large.fnt" id="4_quyhl"]
+[ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="5_h06kl"]
+[ext_resource type="FontFile" uid="uid://bk6hofltd6osx" path="res://Fonts/unlit-large.fnt" id="6_d3jjy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0lnb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lmi6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbqyp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0h6x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ppa8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhjju"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8sg5k"]
+
+[node name="OptionsMenu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_0hbja")
+
+[node name="Options-menu" type="Sprite2D" parent="."]
+position = Vector2(91, 88)
+texture = ExtResource("1_bnr68")
+
+[node name="VolumeSliderFg" type="Sprite2D" parent="."]
+position = Vector2(142, 88)
+texture = ExtResource("2_01ooh")
+region_enabled = true
+
+[node name="Volume" type="HSlider" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 103.0
+offset_top = 77.0
+offset_right = 180.0
+offset_bottom = 99.0
+max_value = 18.0
+value = 18.0
+
+[node name="Title" type="Label" parent="."]
+offset_left = 62.0
+offset_top = -2.0
+offset_right = 148.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("4_quyhl")
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_o0lnb")
+
+[node name="VolumeLabel" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 72.0
+offset_right = 113.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("5_h06kl")
+text = "SOUND:"
+label_settings = SubResource("LabelSettings_lmi6n")
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 31.0
+offset_top = 149.0
+offset_right = 78.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("6_d3jjy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hbqyp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l0h6x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8ppa8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qhjju")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8sg5k")
+text = "MAIN MENU"
+flat = true
+alignment = 0
+
+[connection signal="value_changed" from="Volume" to="." method="_on_volume_value_changed"]
+[connection signal="mouse_entered" from="MainMenuButton" to="." method="_on_main_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="MainMenuButton" to="." method="_on_main_menu_button_mouse_exited"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
