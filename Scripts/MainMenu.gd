@@ -10,39 +10,33 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	var pos = get_viewport().get_mouse_position()
-	if pos.y >= 53 && pos.y <= 75:
-		$Mainmenu/Play.label_settings.set_font(litfont)
-	else:
-		$Mainmenu/Play.label_settings.set_font(unlitfont)
-	
-	if pos.y >= 78 && pos.y <= 97:
-		$Mainmenu/HowToPlay.label_settings.set_font(litfont)
-	else:
-		$Mainmenu/HowToPlay.label_settings.set_font(unlitfont)
 
-	if pos.y >= 155 && pos.y <= 174:
-		$Mainmenu/Exit.label_settings.set_font(litfont)
-	else:
-		$Mainmenu/Exit.label_settings.set_font(unlitfont)
+func _on_play_button_mouse_entered():
+	$Mainmenu/PlayButton.add_theme_font_override("font", litfont)
 
-func _input(event):
-	# Mouse in viewport coordinates.
-	if event is InputEventMouseButton:
-		if not event.is_pressed():
-			return
-		if event.get_button_index() != MOUSE_BUTTON_LEFT:
-			return
+func _on_play_button_mouse_exited():
+	$Mainmenu/PlayButton.add_theme_font_override("font", unlitfont)
 
-		var pos = event.position
-		if pos.y >= 53 && pos.y <= 75:
-			Levels.begin()
-			get_tree().change_scene_to_file("res://main.tscn")
-			
-		if pos.y >= 78 && pos.y <= 97:
-			get_tree().change_scene_to_file("res://Entities/HowToPlay/HowToPlay1.tscn")
+func _on_play_button_pressed():
+	Levels.begin()
+	get_tree().change_scene_to_file("res://main.tscn")
 
-		if pos.y >= 155 && pos.y <= 174:
-			get_tree().quit()
+
+func _on_how_to_play_button_mouse_entered():
+	$Mainmenu/HowToPlayButton.add_theme_font_override("font", litfont)
+
+func _on_how_to_play_button_mouse_exited():
+	$Mainmenu/HowToPlayButton.add_theme_font_override("font", unlitfont)
+
+func _on_how_to_play_button_pressed():
+	get_tree().change_scene_to_file("res://Entities/HowToPlay/HowToPlay1.tscn")
+
+
+func _on_exit_button_mouse_entered():
+	$Mainmenu/ExitButton.add_theme_font_override("font", litfont)
+
+func _on_exit_button_mouse_exited():
+	$Mainmenu/ExitButton.add_theme_font_override("font", unlitfont)
+
+func _on_exit_button_pressed():
+	get_tree().quit()

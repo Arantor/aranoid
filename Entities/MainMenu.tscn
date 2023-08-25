@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://le1ksjvw4tue"]
+[gd_scene load_steps=12 format=3 uid="uid://le1ksjvw4tue"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_tliy0"]
 [ext_resource type="Texture2D" uid="uid://cjarfov4tu20l" path="res://Sprites/Main-Menu.png" id="2_caga1"]
@@ -8,11 +8,15 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_apdpc"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_cj7vs"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24gvi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_aw883"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uahso"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jpyms"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgwnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivo40"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ietkq"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_tliy0")
@@ -38,29 +42,57 @@ theme_override_fonts/font = ExtResource("3_4c4rt")
 text = "ARANOID"
 label_settings = SubResource("LabelSettings_apdpc")
 
-[node name="Play" type="Label" parent="Mainmenu"]
+[node name="PlayButton" type="Button" parent="Mainmenu"]
 offset_left = -60.0
-offset_top = -40.0
-offset_right = 10.0
-offset_bottom = -11.0
+offset_top = -39.0
+offset_right = -6.0
+offset_bottom = -13.0
 theme_override_fonts/font = ExtResource("5_s67kd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_24gvi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uahso")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tgwnp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ivo40")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ietkq")
 text = "PLAY"
-label_settings = SubResource("LabelSettings_cj7vs")
+flat = true
+alignment = 0
 
-[node name="HowToPlay" type="Label" parent="Mainmenu"]
+[node name="HowToPlayButton" type="Button" parent="Mainmenu"]
 offset_left = -60.0
-offset_top = -15.0
+offset_top = -14.0
 offset_right = 73.0
-offset_bottom = 14.0
+offset_bottom = 12.0
 theme_override_fonts/font = ExtResource("5_s67kd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_24gvi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uahso")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tgwnp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ivo40")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ietkq")
 text = "HOW TO PLAY"
-label_settings = SubResource("LabelSettings_aw883")
+flat = true
+alignment = 0
 
-[node name="Exit" type="Label" parent="Mainmenu"]
+[node name="ExitButton" type="Button" parent="Mainmenu"]
 offset_left = -60.0
 offset_top = 61.0
-offset_right = 3.0
-offset_bottom = 90.0
+offset_right = -13.0
+offset_bottom = 87.0
 theme_override_fonts/font = ExtResource("5_s67kd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_24gvi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uahso")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tgwnp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ivo40")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ietkq")
 text = "EXIT"
-label_settings = SubResource("LabelSettings_jpyms")
+flat = true
+alignment = 0
+
+[connection signal="mouse_entered" from="Mainmenu/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="Mainmenu/PlayButton" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="Mainmenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="Mainmenu/HowToPlayButton" to="." method="_on_how_to_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="Mainmenu/HowToPlayButton" to="." method="_on_how_to_play_button_mouse_exited"]
+[connection signal="pressed" from="Mainmenu/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="mouse_entered" from="Mainmenu/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="mouse_exited" from="Mainmenu/ExitButton" to="." method="_on_exit_button_mouse_exited"]
+[connection signal="pressed" from="Mainmenu/ExitButton" to="." method="_on_exit_button_pressed"]
