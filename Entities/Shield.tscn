@@ -10,7 +10,8 @@
 size = Vector2(227, 11)
 
 [node name="Shield" type="StaticBody2D"]
-collision_layer = 2
+collision_layer = 32
+collision_mask = 0
 script = ExtResource("1_nappp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

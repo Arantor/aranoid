@@ -41,6 +41,7 @@ mouse_cursor/custom_image_hotspot=Vector2(2, 2)
 2d_physics/layer_3="Ball"
 2d_physics/layer_4="Bricks"
 2d_physics/layer_5="Powerups"
+2d_physics/layer_6="Shield"
 
 [rendering]
 
