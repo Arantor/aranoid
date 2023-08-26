@@ -52,10 +52,6 @@ func _on_launch_animation_finished():
 	current_ball.ball_to_bat = 0
 	current_ball.ball_mode = current_ball.BALL_MODE.CAUGHT
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 func _physics_process(delta):
 	move_and_slide()
 	velocity.x = 0
@@ -71,13 +67,6 @@ func _input(event):
 		var options = optionsmenu.instantiate()
 		get_parent().add_child(options)
 		options.position = Vector2(34, 2)
-
-func _ball_bounce(current_ball):
-	if "velocity" not in current_ball:
-		return
-
-	current_ball.velocity.y = -current_ball.velocity.y
-	collide_sound.play()
 
 func hit(ball, collision):
 	var collision_point = collision.get_position() - position
