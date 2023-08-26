@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://be0yta44wqgoe"
-path="res://.godot/imported/powerup-multiball.png-c9f50f3ce94b4a4e11347a76bd2164bb.ctex"
+path="res://.godot/imported/powerup-multiball.png-82ecca3a00210de8a1a8c9d8293f75f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/powerup-multiball.png"
-dest_files=["res://.godot/imported/powerup-multiball.png-c9f50f3ce94b4a4e11347a76bd2164bb.ctex"]
+source_file="res://Sprites/Powerups/powerup-multiball.png"
+dest_files=["res://.godot/imported/powerup-multiball.png-82ecca3a00210de8a1a8c9d8293f75f1.ctex"]
 
 [params]
 

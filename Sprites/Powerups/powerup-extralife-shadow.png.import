@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk5uci0ocukld"
-path="res://.godot/imported/powerup-superball.png-b02bc1882c699bc02c1fe3022628fca3.ctex"
+uid="uid://dfngp46vnqoh2"
+path="res://.godot/imported/powerup-extralife-shadow.png-513806b31d0373d81af24903ab844525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/powerup-superball.png"
-dest_files=["res://.godot/imported/powerup-superball.png-b02bc1882c699bc02c1fe3022628fca3.ctex"]
+source_file="res://Sprites/Powerups/powerup-extralife-shadow.png"
+dest_files=["res://.godot/imported/powerup-extralife-shadow.png-513806b31d0373d81af24903ab844525.ctex"]
 
 [params]
 

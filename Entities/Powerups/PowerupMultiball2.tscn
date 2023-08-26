@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0xdtqlkxp8k7"]
 
 [ext_resource type="Script" path="res://Scripts/PowerupMultiball2.gd" id="1_jg87d"]
-[ext_resource type="Texture2D" uid="uid://b6vyw12emb5en" path="res://Sprites/powerup-multiball2.png" id="1_rd6bf"]
-[ext_resource type="Texture2D" uid="uid://bjl30e6bvna2h" path="res://Sprites/powerup-multiball2-shadow.png" id="2_gs2k8"]
+[ext_resource type="Texture2D" uid="uid://b6vyw12emb5en" path="res://Sprites/Powerups/powerup-multiball2.png" id="1_rd6bf"]
+[ext_resource type="Texture2D" uid="uid://bjl30e6bvna2h" path="res://Sprites/Powerups/powerup-multiball2-shadow.png" id="2_gs2k8"]
 
 [node name="PowerupMultiball" type="Area2D"]
 collision_layer = 16

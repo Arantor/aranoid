@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ga3vre25vbfy"
-path="res://.godot/imported/powerup-skiplevel.png-24a39f4c35f54fcc3ccd92c86df3bd18.ctex"
+uid="uid://bjl30e6bvna2h"
+path="res://.godot/imported/powerup-multiball2-shadow.png-ef94d964d9870a73fa1cb86893448190.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/powerup-skiplevel.png"
-dest_files=["res://.godot/imported/powerup-skiplevel.png-24a39f4c35f54fcc3ccd92c86df3bd18.ctex"]
+source_file="res://Sprites/Powerups/powerup-multiball2-shadow.png"
+dest_files=["res://.godot/imported/powerup-multiball2-shadow.png-ef94d964d9870a73fa1cb86893448190.ctex"]
 
 [params]
 

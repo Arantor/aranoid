@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Scripts/HowToPlay/HowToPlay3.gd" id="1_amb3q"]
 [ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="2_ea2v1"]
 [ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="3_g61jw"]
-[ext_resource type="Texture2D" uid="uid://dib10dc4bx5ki" path="res://Sprites/powerup-shield.png" id="4_ch8k7"]
-[ext_resource type="Texture2D" uid="uid://b4qqjawyj1xo2" path="res://Sprites/powerup-shield-shadow.png" id="5_dn6f7"]
+[ext_resource type="Texture2D" uid="uid://dib10dc4bx5ki" path="res://Sprites/Powerups/powerup-shield.png" id="4_ch8k7"]
+[ext_resource type="Texture2D" uid="uid://b4qqjawyj1xo2" path="res://Sprites/Powerups/powerup-shield-shadow.png" id="5_dn6f7"]
 [ext_resource type="Texture2D" uid="uid://68uslysbtfry" path="res://Sprites/menu-sidebar-overlay.png" id="6_q37b8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wtula"]

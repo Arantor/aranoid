@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://fdoya0xlv4is"]
 
-[ext_resource type="Texture2D" uid="uid://ga3vre25vbfy" path="res://Sprites/powerup-skiplevel.png" id="1_6axce"]
+[ext_resource type="Texture2D" uid="uid://ga3vre25vbfy" path="res://Sprites/Powerups/powerup-skiplevel.png" id="1_6axce"]
 [ext_resource type="Script" path="res://Scripts/PowerupSkipLevel.gd" id="1_fnkd8"]
-[ext_resource type="Texture2D" uid="uid://uxslk1inigo5" path="res://Sprites/powerup-skiplevel-shadow.png" id="2_0c2q8"]
+[ext_resource type="Texture2D" uid="uid://uxslk1inigo5" path="res://Sprites/Powerups/powerup-skiplevel-shadow.png" id="2_0c2q8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22eeq"]
 radius = 9.0

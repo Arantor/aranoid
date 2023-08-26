@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4qqjawyj1xo2"
-path="res://.godot/imported/powerup-shield-shadow.png-9aa35bdb656e13970134c04edf2e90e5.ctex"
+uid="uid://by06h00e3g767"
+path="res://.godot/imported/powerup-superball-shadow.png-7b8e1d22b05a5b5bde4862f4eb6d19e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/powerup-shield-shadow.png"
-dest_files=["res://.godot/imported/powerup-shield-shadow.png-9aa35bdb656e13970134c04edf2e90e5.ctex"]
+source_file="res://Sprites/Powerups/powerup-superball-shadow.png"
+dest_files=["res://.godot/imported/powerup-superball-shadow.png-7b8e1d22b05a5b5bde4862f4eb6d19e3.ctex"]
 
 [params]
 
