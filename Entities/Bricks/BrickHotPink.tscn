@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ohnhdyqe5jml"]
+
+[ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_lsba8"]
+[ext_resource type="Texture2D" uid="uid://c31e4e0c1h71d" path="res://Sprites/Bricks/brick-hotpink.png" id="2_at5pn"]
+[ext_resource type="Texture2D" uid="uid://dtd0unetnsl4t" path="res://Sprites/Bricks/brick-shadow.png" id="3_nvgto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
+size = Vector2(14, 7)
+
+[node name="BrickHotPink" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_lsba8")
+scores = 1
+
+[node name="Image" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(7, 4)
+texture = ExtResource("2_at5pn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 3.5)
+shape = SubResource("RectangleShape2D_p5kfe")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(11, 8)
+texture = ExtResource("3_nvgto")
