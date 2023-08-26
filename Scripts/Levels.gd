@@ -28,9 +28,11 @@ func _ready():
 		'earth': preload("res://Entities/Levels/LevelEarth.tscn"),
 		'fish': preload("res://Entities/Levels/LevelFish.tscn"),
 		'goldenstairway': preload("res://Entities/Levels/LevelGoldenStairway.tscn"),
+		'jefftheturtle': preload("res://Entities/Levels/LevelJeffTheTurtle.tscn"),
 		'offbyone': preload("res://Entities/Levels/LevelOffByOne.tscn"),
 		'spine': preload("res://Entities/Levels/LevelSpine.tscn"),
 		'treasurechest': preload("res://Entities/Levels/LevelTreasureChest.tscn"),
+		'turquoisemandala': preload("res://Entities/Levels/LevelTurquoiseMandala.tscn"),
 		'weave': preload("res://Entities/Levels/LevelWeave.tscn"),
 		'wedge': preload("res://Entities/Levels/LevelWedge.tscn"),
 	}
@@ -63,6 +65,8 @@ func populate_level(level):
 func get_level(level_no):
 	
 	var levels = [
+		'jefftheturtle',
+		'turquoisemandala',
 		'fish',
 		'cherries',
 		'spine',
