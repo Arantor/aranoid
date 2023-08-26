@@ -4,8 +4,8 @@ var litfont
 var unlitfont
 
 func _ready():
-	$Volume.value = 18
-	_on_volume_value_changed(18)
+	$Volume.value = Config.get_value("sound_volume")
+	_on_volume_value_changed($Volume.value)
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
@@ -23,6 +23,7 @@ func _on_volume_value_changed(value):
 	var width = 4 + round(value) * 4
 	$VolumeSliderFg.position.x = floor(142 - 38.5 + width / 2)
 	$VolumeSliderFg.set_region_rect(Rect2(0, 0, width, 22))
+	Config.set_value("sound_volume", round(value))
 
 
 func _on_main_menu_button_mouse_entered():
@@ -33,6 +34,7 @@ func _on_main_menu_button_mouse_exited():
 
 func _on_main_menu_button_pressed():
 	get_tree().paused = false
+	Config.save_settings()
 	get_tree().change_scene_to_file("res://Entities/MainMenu.tscn")
 
 
@@ -46,4 +48,5 @@ func _on_resume_button_pressed():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Config.save_settings()
 	queue_free()
