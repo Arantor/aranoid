@@ -28,7 +28,7 @@ func _physics_process(delta):
 
 				var parent_object = collision.get_collider()
 				if parent_object.has_method("hit"):
-					handled_bounce = parent_object.hit(self)
+					handled_bounce = parent_object.hit(self, collision)
 					
 				if !handled_bounce:
 					velocity = velocity.bounce(collision.get_normal())

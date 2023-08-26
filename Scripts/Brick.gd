@@ -14,7 +14,7 @@ func _ready():
 	else:
 		sound = get_node_or_null('../../Sounds/BrickSound')
 
-func hit(ball):
+func hit(ball, _collision):
 	# If the ball is not technically in motion, it can't collide.
 	if ball.is_queued_for_deletion():
 		return false

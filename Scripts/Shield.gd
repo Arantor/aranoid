@@ -42,7 +42,7 @@ func _on_life_timer_timeout():
 func _on_fade_in_timer_timeout():
 	$LifeTimer.start()
 
-func hit(_ball):
+func hit(_ball, _collision):
 	if not $SoundBounce.playing:
 		$SoundBounce.play()
 	return false # We aren't handling the bounce

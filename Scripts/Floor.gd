@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 
-func hit(ball):
+func hit(ball, _collision):
 	ball.queue_free()
 	balls_remaining()
 

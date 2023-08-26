@@ -67,7 +67,7 @@ func _ball_bounce(current_ball):
 	current_ball.velocity.y = -current_ball.velocity.y
 	collide_sound.play()
 
-func hit(_ball):
+func hit(ball, collision):
 	collide_sound.play()
 	
 	return false # We aren't handling the bounce (yet)
