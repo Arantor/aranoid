@@ -4,6 +4,7 @@ var optionsmenu
 var the_ball = preload("res://Entities/Ball.tscn")
 var ball_group
 var collide_sound
+var width_from_center
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +29,17 @@ func reset_player(reset_position = true):
 	print("Ball anim")
 	$Launch.visible = true
 	$Launch.play()
+
+	print("Getting size of bat collider")
+	var left_most = Vector2(0, 0)
+	var right_most = Vector2(0, 0)
+	for point in get_node('CollisionPolygon2D').get_polygon():
+		if point.x < left_most.x:
+			left_most.x = point.x
+		if point.x > right_most.x:
+			right_most.x = point.x
+	width_from_center = max(right_most.x, -left_most.x)
+	print(width_from_center)
 
 func _on_launch_animation_finished():
 	print("Instantiating ball")
@@ -68,6 +80,19 @@ func _ball_bounce(current_ball):
 	collide_sound.play()
 
 func hit(ball, collision):
+	var collision_point = collision.get_position() - position
+
+	# If you're hitting the underside, it's just going to ping off, slightly faster.
+	if collision_point.y > 7:
+		ball.velocity = ball.velocity.bounce(collision.get_normal())
+		ball.velocity *= 1.25
+		return true # We handled the bounce already.
+
+	# If you're hitting the top, then, work out the new angle based on where you hit.
+	var ball_speed = ball.get_velocity_from_vector(ball.velocity)
+	var new_angle = sign(collision_point.x) * ((abs(collision_point.x) / width_from_center) * 55)
+	ball.velocity = ball.get_new_vector_from_velocity_angle(ball_speed, new_angle - 90)
+	
 	collide_sound.play()
 	
-	return false # We aren't handling the bounce (yet)
+	return true # We are handling the bounce.
