@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bot080mykh0uv"]
+[gd_scene load_steps=15 format=3 uid="uid://bot080mykh0uv"]
 
 [ext_resource type="Script" path="res://Scripts/OptionsMenu.gd" id="1_0hbja"]
 [ext_resource type="Texture2D" uid="uid://b3eamepsctlm1" path="res://Sprites/Options-Menu.png" id="1_bnr68"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c0jh8oaysm33t" path="res://Fonts/lit-large.fnt" id="4_quyhl"]
 [ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="5_h06kl"]
 [ext_resource type="FontFile" uid="uid://bk6hofltd6osx" path="res://Fonts/unlit-large.fnt" id="6_d3jjy"]
+[ext_resource type="Texture2D" uid="uid://c4th7wf4nry46" path="res://Sprites/Menu-shadow.png" id="7_ccivd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o0lnb"]
 
@@ -23,6 +24,7 @@
 
 [node name="OptionsMenu" type="Node2D"]
 process_mode = 3
+z_index = 10
 script = ExtResource("1_0hbja")
 
 [node name="Options-menu" type="Sprite2D" parent="."]
@@ -64,7 +66,7 @@ label_settings = SubResource("LabelSettings_lmi6n")
 [node name="MainMenuButton" type="Button" parent="."]
 offset_left = 31.0
 offset_top = 149.0
-offset_right = 78.0
+offset_right = 142.0
 offset_bottom = 175.0
 theme_override_fonts/font = ExtResource("6_d3jjy")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hbqyp")
@@ -76,7 +78,33 @@ text = "MAIN MENU"
 flat = true
 alignment = 0
 
+[node name="ResumeButton" type="Button" parent="."]
+visible = false
+offset_left = 31.0
+offset_top = 23.0
+offset_right = 112.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("6_d3jjy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hbqyp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l0h6x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8ppa8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qhjju")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8sg5k")
+disabled = true
+text = "RESUME"
+flat = true
+alignment = 0
+
+[node name="Menu-shadow" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(126, 88)
+texture = ExtResource("7_ccivd")
+
 [connection signal="value_changed" from="Volume" to="." method="_on_volume_value_changed"]
 [connection signal="mouse_entered" from="MainMenuButton" to="." method="_on_main_menu_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainMenuButton" to="." method="_on_main_menu_button_mouse_exited"]
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="mouse_entered" from="ResumeButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="mouse_exited" from="ResumeButton" to="." method="_on_resume_button_mouse_exited"]
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]

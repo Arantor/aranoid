@@ -7,9 +7,17 @@ func _ready():
 	$Volume.value = 18
 	_on_volume_value_changed(18)
 
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	unlitfont = preload("res://Fonts/unlit-large.fnt")
 	litfont = preload("res://Fonts/lit-large.fnt")
 	get_tree().paused = true
+
+	if get_parent().name != "Mainmenu":
+		$"Menu-shadow".visible = true
+		$ResumeButton.visible = true
+		$ResumeButton.disabled = false
+		
 
 func _on_volume_value_changed(value):
 	var width = 4 + round(value) * 4
@@ -26,3 +34,16 @@ func _on_main_menu_button_mouse_exited():
 func _on_main_menu_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Entities/MainMenu.tscn")
+
+
+func _on_resume_button_mouse_entered():
+	$ResumeButton.add_theme_font_override("font", litfont)
+
+func _on_resume_button_mouse_exited():
+	$ResumeButton.add_theme_font_override("font", unlitfont)
+
+func _on_resume_button_pressed():
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	queue_free()

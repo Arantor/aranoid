@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var optionsmenu
 var the_ball = preload("res://Entities/Ball.tscn")
 var ball_group
 var collide_sound
@@ -7,6 +8,7 @@ var collide_sound
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	collide_sound = get_node('../../Sounds/PlayerSound')
+	optionsmenu = preload("res://Entities/OptionsMenu.tscn")
 	reset_player()
 
 func reset_player(reset_position = true):
@@ -49,6 +51,11 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		position.x += event.relative.x
 	position.x = clamp(position.x, 33, 216)
+
+	if Input.is_key_pressed(KEY_ESCAPE):
+		var options = optionsmenu.instantiate()
+		get_parent().add_child(options)
+		options.position = Vector2(34, 2)
 
 func _ball_bounce(current_ball):
 	if "velocity" not in current_ball:
