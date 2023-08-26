@@ -44,13 +44,16 @@ func _on_launch_animation_finished():
 func _process(_delta):
 	pass
 
+func _physics_process(delta):
+	move_and_slide()
+	velocity.x = 0
+
 func _input(event):
 	if Levels.GameOver:
 		return
 
 	if event is InputEventMouseMotion:
-		position.x += event.relative.x
-	position.x = clamp(position.x, 33, 216)
+		velocity.x = event.relative.x * 50
 
 	if Input.is_key_pressed(KEY_ESCAPE):
 		var options = optionsmenu.instantiate()
