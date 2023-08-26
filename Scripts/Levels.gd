@@ -24,11 +24,13 @@ func _ready():
 		preload("res://Entities/Bricks/BrickBlue.tscn"),
 	]
 	level_scenes = {
+		'cherries': preload("res://Entities/Levels/LevelCherries.tscn"),
 		'earth': preload("res://Entities/Levels/LevelEarth.tscn"),
 		'offbyone': preload("res://Entities/Levels/LevelOffByOne.tscn"),
 		'spine': preload("res://Entities/Levels/LevelSpine.tscn"),
 		'treasurechest': preload("res://Entities/Levels/LevelTreasureChest.tscn"),
 		'weave': preload("res://Entities/Levels/LevelWeave.tscn"),
+		'wedge': preload("res://Entities/Levels/LevelWedge.tscn"),
 	}
 
 func begin():
@@ -59,6 +61,8 @@ func populate_level(level):
 func get_level(level_no):
 	
 	var levels = [
+		'wedge',
+		'cherries',
 		'spine',
 		'earth',
 		'treasurechest',
