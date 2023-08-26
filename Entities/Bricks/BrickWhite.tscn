@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0rig660rstln"]
+
+[ext_resource type="Script" path="res://Scripts/Brick.gd" id="1_q0gec"]
+[ext_resource type="Texture2D" uid="uid://cdq8mr2tqi7g2" path="res://Sprites/Bricks/brick-white.png" id="2_eo2o6"]
+[ext_resource type="Texture2D" uid="uid://dtd0unetnsl4t" path="res://Sprites/Bricks/brick-shadow.png" id="3_b3a5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5kfe"]
+size = Vector2(14, 7)
+
+[node name="BrickWhite" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_q0gec")
+scores = 1
+
+[node name="Image" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(7, 4)
+texture = ExtResource("2_eo2o6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 3.5)
+shape = SubResource("RectangleShape2D_p5kfe")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(11, 8)
+texture = ExtResource("3_b3a5q")
