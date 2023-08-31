@@ -74,7 +74,8 @@ func hit(ball, collision):
 	# If you're hitting the underside, it's just going to ping off, slightly faster.
 	if collision_point.y > 7:
 		ball.velocity = ball.velocity.bounce(collision.get_normal())
-		ball.velocity *= 1.25
+		ball.add_collision_exception_with(self)
+		ball.velocity.y = abs(ball.velocity.y) # Make sure y is +ve so it goes 'down'
 		return true # We handled the bounce already.
 
 	# If you're hitting the top, then, work out the new angle based on where you hit.
