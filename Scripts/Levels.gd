@@ -18,15 +18,18 @@ func _ready():
 		'hiddendefences': preload("res://Entities/Levels/LevelHiddenDefences.tscn"),
 		'jefftheturtle': preload("res://Entities/Levels/LevelJeffTheTurtle.tscn"),
 		'offbyone': preload("res://Entities/Levels/LevelOffByOne.tscn"),
+		'rainbow': preload("res://Entities/Levels/LevelRainbow.tscn"),
 		'sandcastle': preload("res://Entities/Levels/LevelSandcastle.tscn"),
 		'spine': preload("res://Entities/Levels/LevelSpine.tscn"),
 		'spiral': preload("res://Entities/Levels/LevelSpiral.tscn"),
+		'silverrgb': preload("res://Entities/Levels/LevelSilverRGB.tscn"),
 		'silversquares': preload("res://Entities/Levels/LevelSilverSquares.tscn"),
 		'thorshammer': preload("res://Entities/Levels/LevelThorsHammer.tscn"),
 		'treasurechest': preload("res://Entities/Levels/LevelTreasureChest.tscn"),
 		'turquoisemandala': preload("res://Entities/Levels/LevelTurquoiseMandala.tscn"),
 		'twocolumns': preload("res://Entities/Levels/LevelTwoColumns.tscn"),
 		'twotoone': preload("res://Entities/Levels/LevelTwoToOne.tscn"),
+		'velvetlinedgold': preload("res://Entities/Levels/LevelVelvetLinedGold.tscn"),
 		'weave': preload("res://Entities/Levels/LevelWeave.tscn"),
 		'wedge': preload("res://Entities/Levels/LevelWedge.tscn"),
 	}
@@ -59,6 +62,9 @@ func populate_level(level):
 func get_level(level_no):
 	
 	var levels = [
+		'velvetlinedgold',
+		'rainbow',
+		'silverrgb',
 		'silversquares',
 		'colourscale',
 		'twotoone',
