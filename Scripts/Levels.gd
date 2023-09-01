@@ -5,24 +5,10 @@ var CurrentLevel = 0
 var CurrentScore = 0
 var CurrentLives = 3
 var GameOver = false
-var bricks = []
 var level_scenes
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bricks = [
-		false,
-		preload("res://Entities/Bricks/BrickGold.tscn"),
-		preload("res://Entities/Bricks/BrickSilver.tscn"),
-		preload("res://Entities/Bricks/BrickBrown.tscn"),
-		preload("res://Entities/Bricks/BrickRed.tscn"),
-		preload("res://Entities/Bricks/BrickOrange.tscn"),
-		preload("res://Entities/Bricks/BrickYellow.tscn"),
-		preload("res://Entities/Bricks/BrickGreen.tscn"),
-		preload("res://Entities/Bricks/BrickMintGreen.tscn"),
-		preload("res://Entities/Bricks/BrickLightBlue.tscn"),
-		preload("res://Entities/Bricks/BrickBlue.tscn"),
-	]
 	level_scenes = {
 		'cherries': preload("res://Entities/Levels/LevelCherries.tscn"),
 		'earth': preload("res://Entities/Levels/LevelEarth.tscn"),
