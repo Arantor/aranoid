@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=3 uid="uid://brxo3duk1u6k4"]
+
+[ext_resource type="PackedScene" uid="uid://ckggcaamxkk3t" path="res://Entities/Bricks/BrickSilver.tscn" id="1_mhhvs"]
+[ext_resource type="PackedScene" uid="uid://kxbdr3xuq0bx" path="res://Entities/Bricks/BrickRed.tscn" id="2_84nk1"]
+[ext_resource type="PackedScene" uid="uid://xxk33obb0vun" path="res://Entities/Bricks/BrickOrange.tscn" id="3_6iket"]
+[ext_resource type="PackedScene" uid="uid://dlbpyy8td655l" path="res://Entities/Bricks/BrickSunflower.tscn" id="4_l8tqs"]
+[ext_resource type="PackedScene" uid="uid://r44vcmq55ppf" path="res://Entities/Bricks/BrickPeach.tscn" id="5_02a7v"]
+[ext_resource type="PackedScene" uid="uid://dfry3beeo7guq" path="res://Entities/Bricks/BrickBurgundy.tscn" id="6_jr5mo"]
+[ext_resource type="PackedScene" uid="uid://d0rig660rstln" path="res://Entities/Bricks/BrickWhite.tscn" id="7_i5x54"]
+[ext_resource type="PackedScene" uid="uid://sykauk0sinkb" path="res://Entities/Bricks/BrickSkyBlue.tscn" id="8_8d64k"]
+[ext_resource type="PackedScene" uid="uid://dt0f0pfgeqjst" path="res://Entities/Bricks/BrickLightBlue.tscn" id="9_h0hmr"]
+[ext_resource type="PackedScene" uid="uid://jhttbnk5ug1m" path="res://Entities/Bricks/BrickBlue.tscn" id="10_y3q7o"]
+[ext_resource type="PackedScene" uid="uid://c3nbieyarrcbn" path="res://Entities/Bricks/BrickAzure.tscn" id="11_71ldo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BrickSilver" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 56)
+
+[node name="BrickSilver2" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 64)
+
+[node name="BrickSilver8" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 72)
+
+[node name="BrickSilver9" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 80)
+
+[node name="BrickSilver10" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 88)
+
+[node name="BrickSilver3" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 40)
+
+[node name="BrickSilver4" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 32)
+
+[node name="BrickSilver5" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 24)
+
+[node name="BrickSilver6" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 16)
+
+[node name="BrickSilver7" parent="." instance=ExtResource("1_mhhvs")]
+position = Vector2(105, 8)
+
+[node name="BrickRed" parent="." instance=ExtResource("2_84nk1")]
+position = Vector2(90, 80)
+
+[node name="BrickRed2" parent="." instance=ExtResource("2_84nk1")]
+position = Vector2(75, 80)
+
+[node name="BrickRed3" parent="." instance=ExtResource("2_84nk1")]
+position = Vector2(60, 80)
+
+[node name="BrickRed4" parent="." instance=ExtResource("2_84nk1")]
+position = Vector2(45, 80)
+
+[node name="BrickOrange" parent="." instance=ExtResource("3_6iket")]
+position = Vector2(90, 72)
+
+[node name="BrickSunflower" parent="." instance=ExtResource("4_l8tqs")]
+position = Vector2(90, 56)
+
+[node name="BrickPeach" parent="." instance=ExtResource("5_02a7v")]
+position = Vector2(90, 64)
+
+[node name="BrickOrange2" parent="." instance=ExtResource("3_6iket")]
+position = Vector2(75, 72)
+
+[node name="BrickOrange3" parent="." instance=ExtResource("3_6iket")]
+position = Vector2(60, 72)
+
+[node name="BrickPeach2" parent="." instance=ExtResource("5_02a7v")]
+position = Vector2(75, 64)
+
+[node name="BrickBurgundy" parent="." instance=ExtResource("6_jr5mo")]
+position = Vector2(90, 88)
+
+[node name="BrickBurgundy2" parent="." instance=ExtResource("6_jr5mo")]
+position = Vector2(75, 88)
+
+[node name="BrickBurgundy3" parent="." instance=ExtResource("6_jr5mo")]
+position = Vector2(60, 88)
+
+[node name="BrickBurgundy4" parent="." instance=ExtResource("6_jr5mo")]
+position = Vector2(45, 88)
+
+[node name="BrickBurgundy5" parent="." instance=ExtResource("6_jr5mo")]
+position = Vector2(30, 88)
+
+[node name="BrickWhite" parent="." instance=ExtResource("7_i5x54")]
+position = Vector2(120, 40)
+
+[node name="BrickSkyBlue" parent="." instance=ExtResource("8_8d64k")]
+position = Vector2(120, 32)
+
+[node name="BrickLightBlue" parent="." instance=ExtResource("9_h0hmr")]
+position = Vector2(120, 24)
+
+[node name="BrickBlue" parent="." instance=ExtResource("10_y3q7o")]
+position = Vector2(120, 16)
+
+[node name="BrickAzure" parent="." instance=ExtResource("11_71ldo")]
+position = Vector2(120, 8)
+
+[node name="BrickSkyBlue2" parent="." instance=ExtResource("8_8d64k")]
+position = Vector2(135, 32)
+
+[node name="BrickLightBlue2" parent="." instance=ExtResource("9_h0hmr")]
+position = Vector2(135, 24)
+
+[node name="BrickBlue2" parent="." instance=ExtResource("10_y3q7o")]
+position = Vector2(135, 16)
+
+[node name="BrickAzure2" parent="." instance=ExtResource("11_71ldo")]
+position = Vector2(135, 8)
+
+[node name="BrickLightBlue3" parent="." instance=ExtResource("9_h0hmr")]
+position = Vector2(150, 24)
+
+[node name="BrickBlue3" parent="." instance=ExtResource("10_y3q7o")]
+position = Vector2(150, 16)
+
+[node name="BrickAzure3" parent="." instance=ExtResource("11_71ldo")]
+position = Vector2(150, 8)
+
+[node name="BrickBlue4" parent="." instance=ExtResource("10_y3q7o")]
+position = Vector2(165, 16)
+
+[node name="BrickAzure4" parent="." instance=ExtResource("11_71ldo")]
+position = Vector2(165, 8)
+
+[node name="BrickAzure5" parent="." instance=ExtResource("11_71ldo")]
+position = Vector2(180, 8)

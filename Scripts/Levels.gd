@@ -11,6 +11,7 @@ var level_scenes
 func _ready():
 	level_scenes = {
 		'cherries': preload("res://Entities/Levels/LevelCherries.tscn"),
+		'colourscale': preload("res://Entities/Levels/LevelColourScale.tscn"),
 		'earth': preload("res://Entities/Levels/LevelEarth.tscn"),
 		'fish': preload("res://Entities/Levels/LevelFish.tscn"),
 		'goldenstairway': preload("res://Entities/Levels/LevelGoldenStairway.tscn"),
@@ -20,6 +21,7 @@ func _ready():
 		'sandcastle': preload("res://Entities/Levels/LevelSandcastle.tscn"),
 		'spine': preload("res://Entities/Levels/LevelSpine.tscn"),
 		'spiral': preload("res://Entities/Levels/LevelSpiral.tscn"),
+		'silversquares': preload("res://Entities/Levels/LevelSilverSquares.tscn"),
 		'thorshammer': preload("res://Entities/Levels/LevelThorsHammer.tscn"),
 		'treasurechest': preload("res://Entities/Levels/LevelTreasureChest.tscn"),
 		'turquoisemandala': preload("res://Entities/Levels/LevelTurquoiseMandala.tscn"),
@@ -57,6 +59,8 @@ func populate_level(level):
 func get_level(level_no):
 	
 	var levels = [
+		'silversquares',
+		'colourscale',
 		'twotoone',
 		'twocolumns',
 		'hiddendefences',
