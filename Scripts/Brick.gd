@@ -19,6 +19,11 @@ func hit(ball, _collision):
 	if ball.is_queued_for_deletion():
 		return false
 
+	# If it's not destructible, play the sound and let it be bounce managed.
+	if not destructible:
+		sound.play()
+		return false
+
 	# If the ball is a super ball, we're "handling the bounce" i.e. nothing.
 	if ball.super_ball:
 		Levels.score_points(scores)
