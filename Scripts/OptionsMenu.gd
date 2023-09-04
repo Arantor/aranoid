@@ -2,15 +2,21 @@ extends Node2D
 
 var litfont
 var unlitfont
+var litfont_small
+var unlitfont_small
 
 func _ready():
 	$Volume.value = Config.get_value("sound_volume")
 	_on_volume_value_changed($Volume.value)
+	
+	set_game_scale(Config.get_value("scale"))
 
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	unlitfont = preload("res://Fonts/unlit-large.fnt")
 	litfont = preload("res://Fonts/lit-large.fnt")
+	
+	unlitfont_small = preload("res://Fonts/unlit-small.fnt")
+	litfont_small = preload("res://Fonts/lit-small.fnt")
 	get_tree().paused = true
 
 	if get_parent().name != "Mainmenu":
@@ -50,3 +56,32 @@ func _on_resume_button_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Config.save_settings()
 	queue_free()
+
+
+func _on_scale_plus_mouse_entered():
+	$ScalePlus.add_theme_font_override("font", litfont_small)
+
+func _on_scale_plus_mouse_exited():
+	$ScalePlus.add_theme_font_override("font", unlitfont_small)
+
+func _on_scale_plus_pressed():
+	var current_scale = Config.get_value('scale')
+	if current_scale < 5:
+		set_game_scale(current_scale + 1)
+
+
+
+func _on_scale_minus_mouse_entered():
+	$ScaleMinus.add_theme_font_override("font", litfont_small)
+
+func _on_scale_minus_mouse_exited():
+	$ScaleMinus.add_theme_font_override("font", unlitfont_small)
+
+func _on_scale_minus_pressed():
+	var current_scale = Config.get_value('scale')
+	if current_scale > 1:
+		set_game_scale(current_scale - 1)
+
+func set_game_scale(new_scale):
+	Config.set_value('scale', new_scale)
+	$ScaleDisplay.text = str(new_scale) + "x"

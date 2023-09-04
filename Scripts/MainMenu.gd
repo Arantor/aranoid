@@ -8,8 +8,7 @@ var optionsmenu
 func _ready():
 	unlitfont = preload("res://Fonts/unlit-large.fnt")
 	litfont = preload("res://Fonts/lit-large.fnt")
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	optionsmenu = preload("res://Entities/OptionsMenu.tscn")
 
 
