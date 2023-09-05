@@ -11,6 +11,10 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	optionsmenu = preload("res://Entities/OptionsMenu.tscn")
 
+	if OS.has_feature('web'):
+		$Mainmenu/ExitButton.visible = false
+		$Mainmenu/ExitButton.disabled = true
+
 
 func _on_play_button_mouse_entered():
 	$Mainmenu/PlayButton.add_theme_font_override("font", litfont)

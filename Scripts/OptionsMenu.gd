@@ -26,6 +26,15 @@ func _ready():
 		$ResumeButton.visible = true
 		$ResumeButton.disabled = false
 		
+	if OS.has_feature('web'):
+		$ScaleLabel.visible = false
+		$ScaleDisplay.visible = false
+		$ScaleDisplayX.visible = false
+		$ScalePlus.visible = false
+		$ScalePlus.disabled = true
+		$ScaleMinus.visible = false
+		$ScaleMinus.disabled = true
+
 
 func _on_volume_value_changed(value):
 	var width = 4 + round(value) * 4
