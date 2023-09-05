@@ -81,18 +81,18 @@ label_settings = SubResource("LabelSettings_o0lnb")
 
 [node name="VolumeLabel" type="Label" parent="."]
 offset_left = 30.0
-offset_top = 72.0
+offset_top = 81.0
 offset_right = 113.0
-offset_bottom = 101.0
+offset_bottom = 104.0
 theme_override_fonts/font = ExtResource("5_h06kl")
 text = "SOUND:"
 label_settings = SubResource("LabelSettings_lmi6n")
 
 [node name="MouseLabel" type="Label" parent="."]
 offset_left = 30.0
-offset_top = 97.0
+offset_top = 106.0
 offset_right = 113.0
-offset_bottom = 126.0
+offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("5_h06kl")
 text = "MOUSE:"
 label_settings = SubResource("LabelSettings_lmi6n")
@@ -131,9 +131,9 @@ alignment = 0
 
 [node name="ScaleLabel" type="Label" parent="."]
 offset_left = 30.0
-offset_top = 47.0
+offset_top = 55.0
 offset_right = 94.0
-offset_bottom = 76.0
+offset_bottom = 78.0
 theme_override_fonts/font = ExtResource("5_h06kl")
 text = "SCALE
 "
@@ -147,16 +147,16 @@ texture = ExtResource("7_ccivd")
 
 [node name="ScaleDisplay" type="Label" parent="."]
 offset_left = 110.0
-offset_top = 47.0
+offset_top = 53.0
 offset_right = 123.0
 offset_bottom = 76.0
 theme_override_fonts/font = ExtResource("8_pseuh")
 text = "3"
 
 [node name="ScaleDisplayX" type="Label" parent="."]
-offset_left = 122.0
-offset_top = 47.0
-offset_right = 136.0
+offset_left = 121.0
+offset_top = 53.0
+offset_right = 135.0
 offset_bottom = 76.0
 theme_override_fonts/font = ExtResource("8_pseuh")
 text = "x"

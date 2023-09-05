@@ -1,19 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://u6u1qc8voic"]
+[gd_scene load_steps=20 format=3 uid="uid://u6u1qc8voic"]
 
+[ext_resource type="Script" path="res://Scripts/HowToPlay.gd" id="1_lgg7e"]
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4xba"]
-[ext_resource type="Script" path="res://Scripts/HowToPlay/HowToPlay4.gd" id="1_pu75m"]
 [ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="2_43hi2"]
 [ext_resource type="Texture2D" uid="uid://be0yta44wqgoe" path="res://Sprites/Powerups/powerup-multiball.png" id="3_p8phq"]
 [ext_resource type="Texture2D" uid="uid://c7o40q05f0cg1" path="res://Sprites/Powerups/powerup-multiball-shadow.png" id="4_jlrk6"]
+[ext_resource type="Texture2D" uid="uid://b6vyw12emb5en" path="res://Sprites/Powerups/powerup-multiball2.png" id="4_uix2v"]
+[ext_resource type="Texture2D" uid="uid://bjl30e6bvna2h" path="res://Sprites/Powerups/powerup-multiball2-shadow.png" id="5_3ylla"]
 [ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="5_xp5bx"]
 [ext_resource type="Texture2D" uid="uid://68uslysbtfry" path="res://Sprites/menu-sidebar-overlay.png" id="7_kt2jo"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_6llqb"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmpil"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1h623"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odqjv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_updb2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jddoy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fqw5h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3d3a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sha7r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3fb8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nvym4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfn4i"]
 
 [node name="HowToPlay4" type="Node2D"]
-script = ExtResource("1_pu75m")
+script = ExtResource("1_lgg7e")
+PreviousScene = "page3"
 
 [node name="Board" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
@@ -21,15 +40,26 @@ texture = ExtResource("1_o4xba")
 
 [node name="HowToPlay" type="Label" parent="Board"]
 offset_left = -96.0
-offset_top = -92.0
+offset_top = -83.0
 offset_right = 37.0
-offset_bottom = -63.0
+offset_bottom = -54.0
 theme_override_fonts/font = ExtResource("2_43hi2")
 text = "HOW TO PLAY"
 
+[node name="Powerup-multiball2" type="Sprite2D" parent="Board"]
+z_index = 2
+position = Vector2(-132, -50)
+texture = ExtResource("4_uix2v")
+
+[node name="Powerup-multiball2-shadow" type="Sprite2D" parent="Board/Powerup-multiball2"]
+z_index = 1
+z_as_relative = false
+position = Vector2(4, 4)
+texture = ExtResource("5_3ylla")
+
 [node name="Powerup-multiball" type="Sprite2D" parent="Board"]
 z_index = 2
-position = Vector2(-132, -49)
+position = Vector2(-132, 23)
 texture = ExtResource("3_p8phq")
 
 [node name="Powerup-multiball-shadow" type="Sprite2D" parent="Board/Powerup-multiball"]
@@ -38,41 +68,73 @@ z_as_relative = false
 position = Vector2(4, 4)
 texture = ExtResource("4_jlrk6")
 
-[node name="Shield" type="Label" parent="Board"]
+[node name="Multiball3-title" type="Label" parent="Board"]
 offset_left = -115.0
-offset_top = -66.0
-offset_right = -19.0
-offset_bottom = -43.0
+offset_top = 15.0
+offset_right = 25.0
+offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("2_43hi2")
-text = "MULTIBALL"
+text = "MULTIBALL-3"
 
-[node name="Label" type="Label" parent="Board"]
+[node name="Multiball3-label" type="Label" parent="Board"]
 offset_left = -115.0
-offset_top = -43.0
+offset_top = 38.0
 offset_right = 61.0
-offset_bottom = 9.0
+offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("5_xp5bx")
 text = "SPLITS ANY BALL
 INTO 3 BALLS"
+
+[node name="Multiball2-title" type="Label" parent="Board"]
+offset_left = -115.0
+offset_top = -59.0
+offset_right = 25.0
+offset_bottom = -36.0
+theme_override_fonts/font = ExtResource("2_43hi2")
+text = "MULTIBALL-2"
+
+[node name="Multiball3-label2" type="Label" parent="Board"]
+offset_left = -115.0
+offset_top = -38.0
+offset_right = 61.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("5_xp5bx")
+text = "SPLITS ANY BALL
+INTO 2 BALLS"
 
 [node name="Sidebar" type="Sprite2D" parent="."]
 position = Vector2(275, 148)
 texture = ExtResource("7_kt2jo")
 
-[node name="Prev" type="Label" parent="Sidebar"]
-offset_left = -19.0
-offset_top = -38.0
-offset_right = 37.0
+[node name="PrevButton" type="Button" parent="Sidebar"]
+offset_left = -20.0
+offset_top = -29.0
+offset_right = 36.0
 offset_bottom = -9.0
 theme_override_fonts/font = ExtResource("5_xp5bx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fmpil")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_odqjv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_updb2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jddoy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fqw5h")
 text = "PREV"
-label_settings = SubResource("LabelSettings_6llqb")
 
-[node name="Next" type="Label" parent="Sidebar"]
+[node name="NextButton" type="Button" parent="Sidebar"]
 offset_left = -20.0
-offset_top = 3.0
+offset_top = 12.0
 offset_right = 34.0
 offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("5_xp5bx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b3d3a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sha7r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k3fb8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nvym4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pfn4i")
 text = "NEXT"
-label_settings = SubResource("LabelSettings_1h623")
+
+[connection signal="mouse_entered" from="Sidebar/PrevButton" to="." method="_on_prev_button_mouse_entered"]
+[connection signal="mouse_exited" from="Sidebar/PrevButton" to="." method="_on_prev_button_mouse_exited"]
+[connection signal="pressed" from="Sidebar/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="mouse_entered" from="Sidebar/NextButton" to="." method="_on_next_button_mouse_entered"]
+[connection signal="mouse_exited" from="Sidebar/NextButton" to="." method="_on_next_button_mouse_exited"]
+[connection signal="pressed" from="Sidebar/NextButton" to="." method="_on_next_button_pressed"]

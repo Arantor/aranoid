@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmc5x13dofdss"]
+[gd_scene load_steps=20 format=3 uid="uid://dmc5x13dofdss"]
 
-[ext_resource type="Script" path="res://Scripts/HowToPlay/HowToPlay1.gd" id="1_f7kyg"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay.gd" id="1_2lc7h"]
 [ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_kwmov"]
 [ext_resource type="PackedScene" uid="uid://jhttbnk5ug1m" path="res://Entities/Bricks/BrickBlue.tscn" id="2_467yr"]
 [ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="3_q8xrf"]
@@ -10,12 +10,30 @@
 [ext_resource type="Texture2D" uid="uid://dqqonyt2nq8pk" path="res://Sprites/Player-shadow.png" id="7_vsf4o"]
 [ext_resource type="Texture2D" uid="uid://dt3td72f4xdjk" path="res://Sprites/Ball.png" id="8_8vccj"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_5ai2c"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g68vd"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_4j58e"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7m5mk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82tly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_otrsq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ab2r0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xu8so"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jrbby"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwb7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t3up"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsp3h"]
 
 [node name="HowToPlay1" type="Node2D"]
-script = ExtResource("1_f7kyg")
+script = ExtResource("1_2lc7h")
+PreviousScene = "mainmenu"
+NextScene = "page2"
 
 [node name="Board" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
@@ -77,17 +95,17 @@ position = Vector2(24, -54)
 
 [node name="HowToPlay" type="Label" parent="Board"]
 offset_left = -96.0
-offset_top = -92.0
+offset_top = -83.0
 offset_right = 37.0
-offset_bottom = -63.0
+offset_bottom = -54.0
 theme_override_fonts/font = ExtResource("3_q8xrf")
 text = "HOW TO PLAY"
 
 [node name="HelpText" type="Label" parent="Board"]
 offset_left = -142.0
-offset_top = 14.0
-offset_right = 71.0
-offset_bottom = 83.0
+offset_top = 21.0
+offset_right = 75.0
+offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("4_noj8d")
 text = "USING THE BAT, KEEP
 THE BALL IN THE AIR
@@ -97,23 +115,31 @@ TO BREAK THE BRICKS"
 position = Vector2(275, 148)
 texture = ExtResource("5_1iapf")
 
-[node name="Menu" type="Label" parent="Sidebar"]
-offset_left = -21.0
-offset_top = -38.0
-offset_right = 35.0
+[node name="PrevButton" type="Button" parent="Sidebar"]
+offset_left = -20.0
+offset_top = -29.0
+offset_right = 36.0
 offset_bottom = -9.0
 theme_override_fonts/font = ExtResource("4_noj8d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g68vd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7m5mk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_82tly")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_otrsq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ab2r0")
 text = "MENU"
-label_settings = SubResource("LabelSettings_5ai2c")
 
-[node name="Next" type="Label" parent="Sidebar"]
+[node name="NextButton" type="Button" parent="Sidebar"]
 offset_left = -20.0
-offset_top = 3.0
+offset_top = 12.0
 offset_right = 34.0
 offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("4_noj8d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xu8so")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jrbby")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iwb7n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3t3up")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qsp3h")
 text = "NEXT"
-label_settings = SubResource("LabelSettings_4j58e")
 
 [node name="Player" type="Sprite2D" parent="."]
 z_index = 3
@@ -128,3 +154,10 @@ texture = ExtResource("7_vsf4o")
 [node name="Ball" type="Sprite2D" parent="."]
 position = Vector2(133, 60)
 texture = ExtResource("8_8vccj")
+
+[connection signal="mouse_entered" from="Sidebar/PrevButton" to="." method="_on_prev_button_mouse_entered"]
+[connection signal="mouse_exited" from="Sidebar/PrevButton" to="." method="_on_prev_button_mouse_exited"]
+[connection signal="pressed" from="Sidebar/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="mouse_entered" from="Sidebar/NextButton" to="." method="_on_next_button_mouse_entered"]
+[connection signal="mouse_exited" from="Sidebar/NextButton" to="." method="_on_next_button_mouse_exited"]
+[connection signal="pressed" from="Sidebar/NextButton" to="." method="_on_next_button_pressed"]
