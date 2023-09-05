@@ -8,6 +8,8 @@ var unlitfont_small
 func _ready():
 	$Volume.value = Config.get_value("sound_volume")
 	_on_volume_value_changed($Volume.value)
+	$MouseSensitivity.value = Config.get_value("mouse_sensitivity")
+	_on_mouse_sensitivity_value_changed($MouseSensitivity.value)
 	
 	set_game_scale(Config.get_value("scale"))
 
@@ -84,4 +86,11 @@ func _on_scale_minus_pressed():
 
 func set_game_scale(new_scale):
 	Config.set_value('scale', new_scale)
-	$ScaleDisplay.text = str(new_scale) + "x"
+	$ScaleDisplay.text = str(new_scale)
+
+
+func _on_mouse_sensitivity_value_changed(value):
+	var width = 4 + round(value) * 4
+	$MouseSliderFg.position.x = floor(142 - 38.5 + width / 2)
+	$MouseSliderFg.set_region_rect(Rect2(0, 0, width, 22))
+	Config.set_value("mouse_sensitivity", round(value))

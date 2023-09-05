@@ -61,7 +61,7 @@ func _input(event):
 		return
 
 	if event is InputEventMouseMotion:
-		velocity.x = event.relative.x * 50
+		velocity.x = event.relative.x * (30 + 10 * Config.get_value('mouse_sensitivity'))
 
 	if Input.is_key_pressed(KEY_ESCAPE):
 		var options = optionsmenu.instantiate()

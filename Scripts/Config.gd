@@ -14,6 +14,7 @@ func _ready():
 
 	set_value('sound_volume', config.get_value("prefs", "sound_volume", 18))
 	set_value('scale', config.get_value("prefs", "scale", 3))
+	set_value('mouse_sensitivity', config.get_value("prefs", "mouse_sensitivity", 9))
 
 func get_value(key):
 	return config_items[key]
@@ -29,11 +30,14 @@ func set_value(key, value):
 		get_tree().root.size = Vector2i(320 * value, 180 * value)
 		get_tree().root.position = (DisplayServer.screen_get_size() - get_tree().root.size) / 2
 
+
 func set_defaults():
 	config_items['sound_volume'] = 18
 	config_items['scale'] = 3
+	config_items['mouse_sensitivity'] = 9
 
 func save_settings():
 	config.set_value("prefs", "sound_volume", int(config_items['sound_volume']))
 	config.set_value("prefs", "scale", int(config_items['scale']))
+	config.set_value("prefs", "mouse_sensitivity", int(config_items['mouse_sensitivity']))
 	config.save("user://aranoid.cfg")
