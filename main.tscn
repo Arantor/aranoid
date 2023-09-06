@@ -119,9 +119,9 @@ region_rect = Rect2(0, 180, 13, 18)
 [node name="Lvl" type="Label" parent="PlayerItems/LevelCounter"]
 z_index = 4
 offset_left = 244.0
-offset_top = 127.0
+offset_top = 136.0
 offset_right = 284.0
-offset_bottom = 156.0
+offset_bottom = 165.0
 theme_override_fonts/font = ExtResource("6_kq815")
 text = "LV"
 
@@ -151,9 +151,9 @@ script = ExtResource("7_4bgb1")
 
 [node name="x" type="Label" parent="PlayerItems/LivesCounter"]
 offset_left = 269.0
-offset_top = 64.0
+offset_top = 72.0
 offset_right = 283.0
-offset_bottom = 87.0
+offset_bottom = 95.0
 theme_override_fonts/font = ExtResource("6_kq815")
 text = "x"
 
