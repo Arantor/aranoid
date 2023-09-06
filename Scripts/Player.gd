@@ -63,7 +63,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		velocity.x = event.relative.x * (30 + 10 * Config.get_value('mouse_sensitivity'))
 
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_key_pressed(KEY_ESCAPE) or Input.is_key_pressed(KEY_SPACE):
 		var options = optionsmenu.instantiate()
 		get_parent().add_child(options)
 		options.position = Vector2(34, 2)
