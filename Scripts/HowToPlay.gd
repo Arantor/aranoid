@@ -19,6 +19,8 @@ func _ready():
 		'page2': "res://Entities/HowToPlay/HowToPlay2.tscn",
 		'page3': "res://Entities/HowToPlay/HowToPlay3.tscn",
 		'page4': "res://Entities/HowToPlay/HowToPlay4.tscn",
+		'page5': "res://Entities/HowToPlay/HowToPlay5.tscn",
+		'page6': "res://Entities/HowToPlay/HowToPlay6.tscn",
 	}
 	
 	if PreviousScene == "":

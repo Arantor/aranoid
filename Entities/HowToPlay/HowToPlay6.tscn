@@ -1,14 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3reqeggmm67i"]
+[gd_scene load_steps=20 format=3 uid="uid://cg145py7d216"]
 
-[ext_resource type="Script" path="res://Scripts/HowToPlay.gd" id="1_lgg7e"]
-[ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="1_o4xba"]
-[ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="2_43hi2"]
-[ext_resource type="Texture2D" uid="uid://bbcqc2wuvgjxv" path="res://Sprites/Powerups/powerup-extralife.png" id="4_6aey0"]
-[ext_resource type="Texture2D" uid="uid://dfngp46vnqoh2" path="res://Sprites/Powerups/powerup-extralife-shadow.png" id="5_to80s"]
-[ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="5_xp5bx"]
-[ext_resource type="Texture2D" uid="uid://ga3vre25vbfy" path="res://Sprites/Powerups/powerup-skiplevel.png" id="6_4lymj"]
-[ext_resource type="Texture2D" uid="uid://uxslk1inigo5" path="res://Sprites/Powerups/powerup-skiplevel-shadow.png" id="7_fesh8"]
-[ext_resource type="Texture2D" uid="uid://68uslysbtfry" path="res://Sprites/menu-sidebar-overlay.png" id="7_kt2jo"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay.gd" id="1_l3mer"]
+[ext_resource type="Texture2D" uid="uid://bk0m8jyifajxp" path="res://Sprites/board.png" id="2_14li5"]
+[ext_resource type="FontFile" uid="uid://c57vjxkwlmkk3" path="res://Fonts/lit-small.fnt" id="3_c4gdy"]
+[ext_resource type="Texture2D" uid="uid://dk5uci0ocukld" path="res://Sprites/Powerups/powerup-superball.png" id="4_8f7ck"]
+[ext_resource type="Texture2D" uid="uid://by06h00e3g767" path="res://Sprites/Powerups/powerup-superball-shadow.png" id="5_lbv3d"]
+[ext_resource type="Texture2D" uid="uid://76m6fr5tduit" path="res://Sprites/Powerups/powerup-slowball.png" id="6_4tq5l"]
+[ext_resource type="Texture2D" uid="uid://bouk7k8bm7lpm" path="res://Sprites/Powerups/powerup-slowball-shadow.png" id="7_hx6ix"]
+[ext_resource type="FontFile" uid="uid://dr4ih4cnd4k0" path="res://Fonts/unlit-small.fnt" id="8_e308b"]
+[ext_resource type="Texture2D" uid="uid://68uslysbtfry" path="res://Sprites/menu-sidebar-overlay.png" id="9_b3pmu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmpil"]
 
@@ -30,91 +30,91 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfn4i"]
 
-[node name="HowToPlay4" type="Node2D"]
-script = ExtResource("1_lgg7e")
-PreviousScene = "page3"
-NextScene = "page5"
+[node name="HowToPlay6" type="Node2D"]
+script = ExtResource("1_l3mer")
+PreviousScene = "page5"
+NextScene = "mainmenu"
 
 [node name="Board" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
-texture = ExtResource("1_o4xba")
+texture = ExtResource("2_14li5")
 
 [node name="HowToPlay" type="Label" parent="Board"]
 offset_left = -96.0
 offset_top = -83.0
 offset_right = 37.0
 offset_bottom = -54.0
-theme_override_fonts/font = ExtResource("2_43hi2")
+theme_override_fonts/font = ExtResource("3_c4gdy")
 text = "HOW TO PLAY"
 
-[node name="Powerup-extralife" type="Sprite2D" parent="Board"]
+[node name="Powerup-superball" type="Sprite2D" parent="Board"]
 z_index = 2
 z_as_relative = false
-position = Vector2(-132, -52)
-texture = ExtResource("4_6aey0")
+position = Vector2(-130, -51)
+texture = ExtResource("4_8f7ck")
 
-[node name="Powerup-extralife-shadow" type="Sprite2D" parent="Board/Powerup-extralife"]
+[node name="Powerup-superball-shadow" type="Sprite2D" parent="Board/Powerup-superball"]
 z_index = 1
 z_as_relative = false
 position = Vector2(4, 4)
-texture = ExtResource("5_to80s")
+texture = ExtResource("5_lbv3d")
 
-[node name="Powerup-skiplevel" type="Sprite2D" parent="Board"]
+[node name="Powerup-slowball" type="Sprite2D" parent="Board"]
 z_index = 2
 z_as_relative = false
-position = Vector2(-132, 22)
-texture = ExtResource("6_4lymj")
+position = Vector2(-130, 25)
+texture = ExtResource("6_4tq5l")
 
-[node name="Powerup-skiplevel-shadow" type="Sprite2D" parent="Board/Powerup-skiplevel"]
+[node name="Powerup-slowball-shadow" type="Sprite2D" parent="Board/Powerup-slowball"]
 z_index = 1
 z_as_relative = false
 position = Vector2(4, 4)
-texture = ExtResource("7_fesh8")
+texture = ExtResource("7_hx6ix")
 
-[node name="AdvanceLevel-title" type="Label" parent="Board"]
+[node name="Slowball-title" type="Label" parent="Board"]
 offset_left = -115.0
 offset_top = 15.0
 offset_right = 25.0
 offset_bottom = 38.0
-theme_override_fonts/font = ExtResource("2_43hi2")
-text = "ADVANCE LEVEL"
+theme_override_fonts/font = ExtResource("3_c4gdy")
+text = "SLOWBALL"
 
-[node name="AdvanceLevel-label" type="Label" parent="Board"]
+[node name="Slowball-label" type="Label" parent="Board"]
 offset_left = -115.0
 offset_top = 38.0
 offset_right = 61.0
 offset_bottom = 90.0
-theme_override_fonts/font = ExtResource("5_xp5bx")
-text = "CLEARS THE REST
-OF THE BOARD"
+theme_override_fonts/font = ExtResource("8_e308b")
+text = "SLOWS ANY BALLS
+ON THE BOARD"
 
-[node name="ExtraLife-title" type="Label" parent="Board"]
+[node name="Superball-title" type="Label" parent="Board"]
 offset_left = -115.0
 offset_top = -59.0
 offset_right = 25.0
 offset_bottom = -36.0
-theme_override_fonts/font = ExtResource("2_43hi2")
-text = "EXTRA LIFE"
+theme_override_fonts/font = ExtResource("3_c4gdy")
+text = "SUPERBALL"
 
-[node name="ExtraLife-label" type="Label" parent="Board"]
+[node name="Superball-label" type="Label" parent="Board"]
 offset_left = -115.0
 offset_top = -38.0
 offset_right = 61.0
 offset_bottom = 14.0
-theme_override_fonts/font = ExtResource("5_xp5bx")
-text = "GIVES YOU A SPARE
-BALL TO PLAY"
+theme_override_fonts/font = ExtResource("8_e308b")
+text = "THE BALL POWERS
+THROUGH BRICKS"
 
 [node name="Sidebar" type="Sprite2D" parent="."]
 position = Vector2(275, 148)
-texture = ExtResource("7_kt2jo")
+texture = ExtResource("9_b3pmu")
 
 [node name="PrevButton" type="Button" parent="Sidebar"]
 offset_left = -20.0
 offset_top = -29.0
 offset_right = 36.0
 offset_bottom = -9.0
-theme_override_fonts/font = ExtResource("5_xp5bx")
+theme_override_fonts/font = ExtResource("8_e308b")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fmpil")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_odqjv")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_updb2")
@@ -127,13 +127,13 @@ offset_left = -20.0
 offset_top = 12.0
 offset_right = 34.0
 offset_bottom = 32.0
-theme_override_fonts/font = ExtResource("5_xp5bx")
+theme_override_fonts/font = ExtResource("8_e308b")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_b3d3a")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_sha7r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_k3fb8")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_nvym4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pfn4i")
-text = "NEXT"
+text = "MENU"
 
 [connection signal="mouse_entered" from="Sidebar/PrevButton" to="." method="_on_prev_button_mouse_entered"]
 [connection signal="mouse_exited" from="Sidebar/PrevButton" to="." method="_on_prev_button_mouse_exited"]
